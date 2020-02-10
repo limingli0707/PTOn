@@ -9,11 +9,3 @@ body {
 background-size: cover;
 background-attachment: fixed;
 }
-
-.App::after {
-  background-image: linear-gradient(
-    to bottom,
-    rgba(175, 197, 222, 0) 60%,
-    #afc5de
-  );
-}

@@ -1,21 +1,25 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
+import './ProductAvatar.css';
 
 const ProductAvatar = props => {
 
-/*    function AvatarStyle() {
-        let styles = {
-            margin: '20px',
-            width: '250px',
-            height: '250px',
-        };*/
-
+    const styles = {
+        row: {
+            display: 'flex',
+            justifyContent: 'center',
+        },
+        avatar: {
+            margin: 10,
+        },
+        bigAvatar: {
+            width: 200,
+            height: 200,
+        },
+    };
     return (
-        <div>
-            <Paper elevation={3} >
-                <img src = "https://pbs.twimg.com/media/EFQq6FRUUAA7JCu?format=jpg&name=small" alt="Product Avatar" />
-            </Paper>
-        </div>
+
+        <Avatar style={styles.bigAvatar}  variant="round" alt="Product Avatar" src={props.source} />
     );
 };
 

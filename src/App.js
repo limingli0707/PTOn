@@ -8,8 +8,8 @@ import ProductImagesHolder from "./components/ProductImagesHolder"
 function App() {
   return (
     <div className="App">
-      <ProductImagesHolder />
       <ProductDetailHeader />
+      <ProductImagesHolder />
     </div>
   );
 }

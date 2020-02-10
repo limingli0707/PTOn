@@ -40,7 +40,7 @@ export default function SelectPeriod() {
     <div>
   
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Period</InputLabel>
+      
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"

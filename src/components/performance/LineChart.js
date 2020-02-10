@@ -1,7 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Chart from "react-google-charts";
-// Ref : https://developers.google.com/chart/interactive/docs/gallery/histogram
 
 const data = [
   ["Date", "Total Views", "Total Sales"],
@@ -16,7 +14,7 @@ const data = [
   ["17/7", 5500, 2200],
 ];
 const options = {
-  title: "RS02991: Red Shoes",
+  title: "",
   intervals: { 'style':'line' },
   lineWidth: 3,
   legend: 'none'

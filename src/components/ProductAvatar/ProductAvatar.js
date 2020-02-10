@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar } from '@material-ui/core';
-import './ProductAvatar.css';
 
 const ProductAvatar = props => {
 
@@ -13,13 +12,13 @@ const ProductAvatar = props => {
             margin: 10,
         },
         bigAvatar: {
-            width: 200,
-            height: 200,
+            width: 150,
+            height: 150,
         },
     };
     return (
 
-        <Avatar style={styles.bigAvatar}  variant="round" alt="Product Avatar" src={props.source} />
+        <Avatar style={styles.bigAvatar}  variant="square" alt="Product Avatar" src={props.source} />
     );
 };
 

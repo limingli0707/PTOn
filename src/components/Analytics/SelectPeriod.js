@@ -49,7 +49,7 @@ export default function SelectPeriod() {
           onChange={handleChange}
         >
           <MenuItem value="10">
-            <em>This Week</em>
+            This Week
           </MenuItem>
           <MenuItem value={20}>Last Week</MenuItem>
         </Select>

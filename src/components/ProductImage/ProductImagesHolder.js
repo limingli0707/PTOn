@@ -15,6 +15,18 @@ class ProductImagesHolder extends React.Component {
         };
     }
 
+    /* fetch('https://{shortCode}.api.commercecloud.salesforce.com/product/products/v1/organizations/{organizationId}/products/{productId}')
+        .then((response) => {
+    return response.json(); // or .text() or .blob() ...
+    })
+    .then((text) => {
+    // text is the response body
+    })
+    .catch((e) => {
+        // error in e.message
+    });
+   */
+
     componentDidMount() {
         fetch("https://api.github.com/users")
             .then(res => res.json())
@@ -72,6 +84,5 @@ class ProductImagesHolder extends React.Component {
     }
 
 };
-
 
 export default ProductImagesHolder;

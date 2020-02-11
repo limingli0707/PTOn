@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import ProductDetail from './components/ProductDetail/ProductDetail';
-import ReactVirtualizedTable from './components/ProductList/VirtualizedProductList'
+import ProductList from './components/ProductList/ProductList'
 import AppList from './components/AppList';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from './theme';
@@ -25,7 +25,7 @@ function App() {
             <AppList />
           </Route>
           <Route path="/productlist">
-            <ReactVirtualizedTable />
+            <ProductList />
           </Route>
         </Switch>
         </div>

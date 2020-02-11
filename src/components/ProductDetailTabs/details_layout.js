@@ -9,9 +9,15 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: 'left',
     color: theme.palette.text.secondary,
   },
+  label: {
+    color: "#aaa"
+  },
+  content: {
+    color: "#000"
+  }
 }));
 
 export default function CenteredGrid() {
@@ -19,13 +25,19 @@ export default function CenteredGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
 
         <Grid item xs={6}>
-          <Paper className={classes.paper}>Product Name</Paper>
+          <Paper className={classes.paper}>
+            <div className={classes.label}>Product Name</div>
+            <div>Canyondiamonds Full Zip Fleece</div>
+          </Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>Product ID</Paper>
+          <Paper className={classes.paper}>
+            <div className={classes.label}>Product ID</div>
+            <div>1203100</div>
+          </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>Description:<br/>
@@ -37,12 +49,23 @@ export default function CenteredGrid() {
           </Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>Brand</Paper>
+          <Paper className={classes.paper}>
+            <div className={classes.label}>Brand</div>
+            <div>Northen Train Outfitters</div>
+          </Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>Product Type</Paper>
+          <Paper className={classes.paper}>
+            <div className={classes.label}>Product Type</div>
+            <div>Apparel</div>
+          </Paper>
         </Grid>
-
+        <Grid item xs={6}>
+        <Paper className={classes.paper}>
+          <div className={classes.label}>Color</div>
+          <div>#575153</div>
+        </Paper>
+        </Grid>
       </Grid>
     </div>
   );

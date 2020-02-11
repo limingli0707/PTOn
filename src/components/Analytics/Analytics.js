@@ -77,7 +77,7 @@ interface StyledTabProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
-      maxWidth: 390
+      maxWidth: "100%"
     },
     media: {
       height: 0,

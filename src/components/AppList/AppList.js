@@ -6,6 +6,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 import { AppsToolbar, AppCard } from './components';
 import mockData from './data';
+import {Box} from '@material-ui/core';
+import Sidebar from './components/Sidebar';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +31,8 @@ const ProductList = () => {
 
   return (
     <div className={classes.root}>
-      <AppsToolbar />
+      <Box mt={20}> <AppsToolbar /></Box>
+      <Sidebar />
       <div className={classes.content}>
         <Grid
           container

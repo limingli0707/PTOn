@@ -8,12 +8,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    paddingTop: 20
+    flexGrow: 1
   },
   container: {
-    paddingLeft: 20,
-    paddingRight: 20
+    marginLeft: 20,
+    marginRight: 20
   }
 }));
 

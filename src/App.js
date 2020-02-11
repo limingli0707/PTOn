@@ -1,25 +1,27 @@
 import React from "react";
-import PerformanceLayout from "./components/performance/PerformanceLayout";
 import "./App.css";
-import ProductDetailHeader from "./components/ProductDetailHeader/ProductDetailHeader";
-import ProductAvatar from "./components/ProductAvatar/ProductAvatar";
-import Grid from "@material-ui/core/Grid";
-
-import ProductImagesHolder from "./components/ProductImagesHolder";
+import ProductDetail from './components/ProductDetail/ProductDetail'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <ProductDetailHeader />
-      <Grid container spacing={5}>
-        <Grid item xs={4}>
-          <ProductImagesHolder />
-        </Grid>
-        <Grid item xs={4}>
-          <PerformanceLayout></PerformanceLayout>
-        </Grid>
-      </Grid>
-    </div>
+    <Router>
+      <div className="App">
+      <Switch>
+        <Route exact path="/">
+          <ProductDetail />
+        </Route>
+        <Route path="/appInstall">
+          <div>App Install</div>
+        </Route>
+      </Switch>
+      </div>
+    </Router>
   );
 }
 

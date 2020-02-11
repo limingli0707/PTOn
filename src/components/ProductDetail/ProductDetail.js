@@ -21,25 +21,24 @@ const ProductDetail = props => {
 
   return (
     <div className={classes.root}>
-      <ProductDetailHeader />
       <Grid
         container
-        spacing={5}
-        direction="row"
-        justify="center"
-        alignItems="flex-start"
+        spacing={3}
         className={classes.container}
       >
-        <Grid item xs={3}>
-        <ProductImagesHolder />
+        <Grid item xs={12}>
+          <ProductDetailHeader />
         </Grid>
-        <Grid item xs={5}>
-        <DetailTabs />
-        </Grid>
-        <Grid item xs={3}>
-          <Analytics product={{ name: "Diamond Stud Earings" }}/>
-        </Grid>
-      </Grid>
+            <Grid item xs={3}>
+              <ProductImagesHolder />
+            </Grid>
+            <Grid item xs={6}>
+              <DetailTabs />
+            </Grid>
+            <Grid item xs={3}>
+              <Analytics product={{ name: "Diamond Stud Earings" }} />
+            </Grid>
+          </Grid>
     </div>
   );
 };

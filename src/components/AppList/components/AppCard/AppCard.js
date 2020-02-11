@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
@@ -11,8 +11,11 @@ import {
   Divider
 } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import GetAppIcon from '@material-ui/icons/GetApp';
-
+import CloudDownload from '@material-ui/icons/CloudDownload';
+import DoneIcon from '@material-ui/icons/Done';
+import IconButton from '@material-ui/core/IconButton';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   root: {},
   imageContainer: {
@@ -38,12 +41,21 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1)
   }
 }));
-
 const AppCard = props => {
+  let history = useHistory();
   const { className, product, ...rest } = props;
-
   const classes = useStyles();
-
+  const [isDownloaded, setIsDownloaded] = useState(false);
+  function handleDownload(e) {
+    e.preventDefault();
+    console.log('handle download');
+    setIsDownloaded(true);
+  }
+  function goToApp(e) {
+    e.preventDefault();
+    console.log('go to app');
+    history.push('/productDetail');
+  }
   return (
     <Card
       {...rest}
@@ -93,7 +105,9 @@ const AppCard = props => {
             className={classes.statsItem}
             item
           >
-            <GetAppIcon className={classes.statsIcon} />
+            {isDownloaded ? 
+            <IconButton color='primary' onClick={goToApp}><OpenInNewIcon /></IconButton> : 
+            <IconButton color='primary' onClick={handleDownload}><CloudDownload className={classes.statsIcon} /> </IconButton>}
             <Typography
               display="inline"
               variant="body2"
@@ -106,10 +120,8 @@ const AppCard = props => {
     </Card>
   );
 };
-
 AppCard.propTypes = {
   className: PropTypes.string,
   product: PropTypes.object.isRequired
 };
-
 export default AppCard;

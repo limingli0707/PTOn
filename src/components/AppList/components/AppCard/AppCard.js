@@ -54,7 +54,7 @@ const AppCard = props => {
   function goToApp(e) {
     e.preventDefault();
     console.log('go to app');
-    history.push('/productDetail');
+    history.push('/productList');
   }
   return (
     <Card

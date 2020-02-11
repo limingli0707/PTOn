@@ -17,7 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {height: 250},
   imageContainer: {
     height: 64,
     width: 64,

@@ -4,7 +4,7 @@ import { IconButton, Grid, Typography } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
-import { AppsToolbar, AppCard } from './components';
+import { AppsToolbar, AppCard, AppTile } from './components';
 import mockData from './data';
 import {Box} from '@material-ui/core';
 import Sidebar from './components/Sidebar';
@@ -35,9 +35,28 @@ const ProductList = () => {
       <Box mt={20}> <AppsToolbar /></Box>
       <Sidebar />
 
-      <div id="downloadedApps">
-      this is Placeholder for downloaded apps
+
+      <div id="downloadedApps" className={classes.content}>
+        <Grid
+          container
+          spacing={3}
+        >
+          {products.map(product => {
+            if (product.downloaded == true) return (
+            <Grid
+              item
+              key={product.id}
+              lg={2}
+              md={2}
+              xs={4}
+            >
+              <AppTile product={product} />
+            </Grid>
+          )}
+        )}
+        </Grid>
       </div>
+
       <Divider className={classes.divider} />
       <div className={classes.content}>
         <Grid

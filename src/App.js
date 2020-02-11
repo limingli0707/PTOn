@@ -17,17 +17,20 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <ProductDetail />
-          </Route>
-          <Route path="/apps">
-            <AppList />
-          </Route>
-          <Route path="/productlist">
-            <ProductList />
-          </Route>
-        </Switch>
+          <Switch>
+            <Route exact path="/">
+              <AppList />
+            </Route>
+            <Route exact path="/apps">
+              <AppList />
+            </Route>
+            <Route path="/productlist">
+              <ProductList />
+            </Route>
+            <Route path="/productDetail">
+              <ProductDetail />
+            </Route>
+          </Switch>
         </div>
       </Router>
     </ThemeProvider>

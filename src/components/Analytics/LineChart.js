@@ -23,7 +23,7 @@ export default class Line extends React.Component {
         <Chart
           chartType="LineChart"
           width="100%"
-          height="400px"
+          height="100%"
           data={productHistoryData}
           options={options}
         />

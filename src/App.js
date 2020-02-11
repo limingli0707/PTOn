@@ -20,6 +20,9 @@ function App() {
           <Route exact path="/">
             <AppList />
           </Route>
+          <Route exact path="/apps">
+            <AppList />
+          </Route>
           <Route path="/productDetail">
           <ProductDetail />
           </Route>

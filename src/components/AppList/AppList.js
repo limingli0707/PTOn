@@ -8,6 +8,7 @@ import { AppsToolbar, AppCard } from './components';
 import mockData from './data';
 import {Box} from '@material-ui/core';
 import Sidebar from './components/Sidebar';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +34,11 @@ const ProductList = () => {
     <div className={classes.root}>
       <Box mt={20}> <AppsToolbar /></Box>
       <Sidebar />
+
+      <div id="downloadedApps">
+      this is Placeholder for downloaded apps
+      </div>
+      <Divider className={classes.divider} />
       <div className={classes.content}>
         <Grid
           container

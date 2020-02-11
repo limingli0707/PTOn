@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import ProductDetail from './components/ProductDetail/ProductDetail'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,5 +25,7 @@ function App() {
     </Router>
   );
 }
+
+
 
 export default App;

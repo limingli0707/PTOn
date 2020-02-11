@@ -23,7 +23,7 @@ const ProductImages = (props) => (
         <GridList cols={3}>
             { props.products.map(tile => (
                 <GridListTile key={tile.avatar_url}>
-                    <img style={{ width: "150px" }} src={tile.avatar_url} alt={tile.name} />
+                    <img style={{ width: "140px" }} src={tile.avatar_url} alt={tile.name} />
                 </GridListTile>
             ))}
         </GridList>
@@ -31,7 +31,3 @@ const ProductImages = (props) => (
 );
 
 export default ProductImages;
-
-
-
-

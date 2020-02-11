@@ -8,44 +8,59 @@ class ProductImagesHolder extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          error: null,
-          isLoaded: false,
-          products: []
+            error: null,
+            isLoaded: false,
+            products: []
         };
-      }
+    }
 
-      componentDidMount() {
+    componentDidMount() {
         fetch("https://api.github.com/users")
-          .then(res => res.json())
-          .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                products: result
-              });
-            },
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        products: result
+                    });
+                },
 
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          )
-      }
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
 
     render() {
         const { error, isLoaded, products } = this.state;
 
+        const imagePlaceholder = {
+            border: '2px light grey', 
+            width: "400px", 
+            height: "500px", 
+            overflow: "scroll", 
+            overflowX: "hidden", 
+            backgroundColor: "white"
+        };
+
+        const headerStyle = {
+            padding: "10px", 
+            listStyle: "none", 
+            display: "flex", 
+            justifyContent: "space-between" 
+        };
+
         return (
-            <div style={{border: '2px light grey',width: "400px", height: "500px", overflow:"scroll", overflowX:"hidden"}}>
+            <div style={imagePlaceholder}>
 
-                <div style={{padding: "10px" ,listStyle: "none",display: "flex", justifyContent:"space-between"}} >
-                <ImageIcon fontSize="large" />
+                <div style={headerStyle} >
 
-                <h2>Images ({products.length || 6})</h2>
+                    <div style={{display:"flex"}}> <ImageIcon fontSize="medium" />Images ({products.length || 6})</div>
 
-                <Button style={{height:"40px"}} variant="outlined">Manage</Button>
+                    <Button style={{ height: "40px" }} variant="outlined">Manage</Button>
 
                 </div>
 

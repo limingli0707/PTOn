@@ -1,5 +1,5 @@
 import React from "react";
-import ProductImagesHolder from '../ProductImagesHolder';
+import ProductImagesHolder from '../ProductImage/ProductImagesHolder';
 import Grid from "@material-ui/core/Grid";
 import ProductDetailHeader from '../ProductDetailHeader/ProductDetailHeader';
 import PerformanceLayout from "../performance/PerformanceLayout";

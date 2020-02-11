@@ -23,7 +23,7 @@ const ProductImages = (props) => (
         <GridList cols={3}>
             { props.products.map(tile => (
                 <GridListTile key={tile.avatar_url}>
-                    <img style={{ width: "120px", height: "120px" }} src={tile.avatar_url} alt={tile.name} />
+                    <img style={{ width: "120px", height: "160px" }} src={tile.avatar_url} alt={tile.name} />
                 </GridListTile>
             ))}
         </GridList>

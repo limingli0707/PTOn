@@ -60,7 +60,7 @@ const AntTab = withStyles((theme: Theme) =>
       },
       "&$selected": {
         color: "#1890ff",
-        fontWeight: theme.typography.fontWeightMedium
+        fontWeight: theme.typography.fontWeightBold
       },
       "&:focus": {
         color: "#40a9ff"
@@ -77,7 +77,7 @@ interface StyledTabProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
-      maxWidth: 375
+      maxWidth: 390
     },
     media: {
       height: 0,
@@ -184,7 +184,7 @@ export default function PerformanceLayout({ product }) {
           <CardContent disableSpacing>
             <Grid
               container
-              spacing={2}
+              spacing={6}
               direction="row"
               alignItems="center"
               justify="center"

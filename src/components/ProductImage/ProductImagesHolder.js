@@ -14,61 +14,74 @@ class ProductImagesHolder extends React.Component {
         };
     }
 
-    componentDidMount() {
-        fetch("https://api.github.com/users")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        products: result
-                    });
-                },
 
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
+    /* fetch('https://{shortCode}.api.commercecloud.salesforce.com/product/products/v1/organizations/{organizationId}/products/{productId}')
+        .then((response) => {
+    return response.json(); // or .text() or .blob() ...
+    })
+    .then((text) => {
+    // text is the response body
+    })
+    .catch((e) => {
+        // error in e.message
+    });
+ */
 
-    render() {
-        const { error, isLoaded, products } = this.state;
+componentDidMount() {
+    fetch("https://api.github.com/users")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    isLoaded: true,
+                    products: result
+                });
+            },
 
-        const imagePlaceholder = {
-            border: '2px light grey', 
-            width: "400px", 
-            height: "500px", 
-            overflow: "scroll", 
-            overflowX: "hidden", 
-            backgroundColor: "white"
-        };
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        )
+}
 
-        const headerStyle = {
-            padding: "10px", 
-            listStyle: "none", 
-            display: "flex", 
-            justifyContent: "space-between" 
-        };
+render() {
+    const { error, isLoaded, products } = this.state;
 
-        return (
-            <div style={imagePlaceholder}>
+    const imagePlaceholder = {
+        border: '2px light grey',
+        width: "400px",
+        height: "500px",
+        overflow: "scroll",
+        overflowX: "hidden",
+        backgroundColor: "white"
+    };
 
-                <div style={headerStyle} >
+    const headerStyle = {
+        padding: "10px",
+        listStyle: "none",
+        display: "flex",
+        justifyContent: "space-between"
+    };
 
-                    <div style={{display:"flex"}}> <ImageIcon fontSize="medium" />Images ({products.length || 6})</div>
+    return (
+        <div style={imagePlaceholder}>
 
-                    <Button style={{ height: "40px" }} variant="outlined">Manage</Button>
+            <div style={headerStyle} >
 
-                </div>
+                <div style={{ display: "flex" }}> <ImageIcon fontSize="medium" />Images ({products.length || 6})</div>
 
-                <ProductImages products={products} />
+                <Button style={{ height: "40px" }} variant="outlined">Manage</Button>
 
             </div>
-        )
-    }
+
+            <ProductImages products={products} />
+
+        </div>
+    )
+}
 
 };
 

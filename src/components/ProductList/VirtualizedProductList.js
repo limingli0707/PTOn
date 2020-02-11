@@ -39,7 +39,7 @@ const styles = theme => ({
 class MuiVirtualizedTable extends React.PureComponent {
   static defaultProps = {
     headerHeight: 48,
-    rowHeight: 48,
+    rowHeight: 50,
   };
 
   getRowClassName = ({ index }) => {
@@ -71,11 +71,12 @@ class MuiVirtualizedTable extends React.PureComponent {
     const { headerHeight, columns, classes } = this.props;
 
     return (
+
       <TableCell
         component="div"
         className={clsx(classes.tableCell, classes.flexContainer, classes.noClick)}
         variant="head"
-        style={{ height: headerHeight }}
+        style={{ height: headerHeight, fontWeight: "bold", width: "100%", backgroundColor:"#f5f5f5" }}
         align={columns[columnIndex].numeric || false ? 'right' : 'left'}
       >
         <span>{label}</span>
@@ -86,6 +87,7 @@ class MuiVirtualizedTable extends React.PureComponent {
   render() {
     const { classes, columns, rowHeight, headerHeight, ...tableProps } = this.props;
     return (
+    
       <AutoSizer>
         {({ height, width }) => (
           <Table
@@ -120,6 +122,7 @@ class MuiVirtualizedTable extends React.PureComponent {
           </Table>
         )}
       </AutoSizer>
+
     );
   }
 }
@@ -144,15 +147,15 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 // ---
 
 const sample = [
-  ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-  ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-  ['Eclair', 262, 16.0, 24, 6.0],
-  ['Cupcake', 305, 3.7, 67, 4.3],
-  ['Gingerbread', 356, 16.0, 49, 3.9],
+  ['Apex BionicJacket', 159, 6.0, 24, 'Footwear'],
+  ['Denali Jacket', 237, 9.0, 37, 'gear'],
+  ['Quantum Jacket', 262, 16.0, 24, 'Apparel'],
+  ['Base Camp Hot Shot Backpack', 305, 3.7, 67, 'gear'],
+  ['Denali Gloves', 356, 16.0, 49, 'Gear'],
 ];
 
-function createData(id, dessert, calories, fat, carbs, protein) {
-  return { id, dessert, calories, fat, carbs, protein };
+function createData(id, product, price, variations, available, type) {
+  return { id, product, price, variations, available, type };
 }
 
 const rows = [];
@@ -164,40 +167,46 @@ for (let i = 0; i < 200; i += 1) {
 
 export default function ReactVirtualizedTable() {
   return (
-    <Paper style={{ height: 400, width: '100%' }}>
+    <Paper style={{ height: 800, width: '100%' }}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
           {
-            width: 200,
-            label: 'Dessert',
-            dataKey: 'dessert',
+            width: 250,
+            label: 'Product',
+            dataKey: 'product',
           },
           {
-            width: 120,
-            label: 'Calories\u00A0(g)',
-            dataKey: 'calories',
+            width: 250,
+            label: 'Price',
+            dataKey: 'price',
             numeric: true,
           },
           {
-            width: 120,
-            label: 'Fat\u00A0(g)',
-            dataKey: 'fat',
+            width: 250,
+            label: 'Variations',
+            dataKey: 'variations',
             numeric: true,
           },
           {
-            width: 120,
-            label: 'Carbs\u00A0(g)',
-            dataKey: 'carbs',
+            width: 250,
+            label: 'Available',
+            dataKey: 'available',
             numeric: true,
           },
           {
-            width: 120,
-            label: 'Protein\u00A0(g)',
-            dataKey: 'protein',
+            width: 250,
+            label: 'Type',
+            dataKey: 'type',
             numeric: true,
           },
+          {
+            width: 250,
+            label: 'Date Created',
+            dataKey: 'type',
+            numeric: true,
+          }
         ]}
       />
     </Paper>

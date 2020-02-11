@@ -17,10 +17,10 @@ import IconButton from '@material-ui/core/IconButton';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
-  root: {height: 250},
+  root: {},
   imageContainer: {
-    height: 64,
-    width: 64,
+    height: 80,
+    width: 80,
     margin: '0 auto',
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: '5px',
@@ -41,15 +41,15 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1)
   }
 }));
-const AppCard = props => {
+const AppTile = props => {
   let history = useHistory();
   const { className, product, ...rest } = props;
   const classes = useStyles();
-  const [isDownloaded, setIsDownloaded] = useState(false);
+  const [is, setIs] = useState(false);
   function handleDownload(e) {
     e.preventDefault();
     console.log('handle download');
-    setIsDownloaded(true);
+    setIs(true);
   }
   function goToApp(e) {
     e.preventDefault();
@@ -76,52 +76,19 @@ const AppCard = props => {
         >
           {product.title}
         </Typography>
-        <Typography
-          align="center"
-          variant="body2"
-        >
-          {product.description}
-        </Typography>
       </CardContent>
-      <Divider />
       <CardActions>
         <Grid
           container
           justify="space-between"
         >
-          <Grid
-            className={classes.statsItem}
-            item
-          >
-            <AccessTimeIcon className={classes.statsIcon} />
-            <Typography
-              display="inline"
-              variant="body2"
-            >
-              Updated 2hr ago
-            </Typography>
-          </Grid>
-          <Grid
-            className={classes.statsItem}
-            item
-          >
-            {isDownloaded ? 
-            <IconButton color='primary' onClick={goToApp}><OpenInNewIcon /></IconButton> : 
-            <IconButton color='primary' onClick={handleDownload}><CloudDownload className={classes.statsIcon} /> </IconButton>}
-            <Typography
-              display="inline"
-              variant="body2"
-            >
-              {product.totalDownloads} Downloads
-            </Typography>
-          </Grid>
         </Grid>
       </CardActions>
     </Card>
   );
 };
-AppCard.propTypes = {
+AppTile.propTypes = {
   className: PropTypes.string,
   product: PropTypes.object.isRequired
 };
-export default AppCard;
+export default AppTile;

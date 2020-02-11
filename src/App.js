@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
-import ProductDetail from './components/ProductDetail/ProductDetail'
+import ProductDetail from './components/ProductDetail/ProductDetail';
+import AppList from './components/AppList';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './theme';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,18 +13,20 @@ import {
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-      <Switch>
-        <Route exact path="/">
-          <ProductDetail />
-        </Route>
-        <Route path="/appInstall">
-          <div>App Install</div>
-        </Route>
-      </Switch>
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <ProductDetail />
+          </Route>
+          <Route path="/apps">
+            <AppList />
+          </Route>
+        </Switch>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

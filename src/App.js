@@ -18,10 +18,10 @@ function App() {
         <div className="App">
         <Switch>
           <Route exact path="/">
-            <ProductDetail />
-          </Route>
-          <Route path="/apps">
             <AppList />
+          </Route>
+          <Route path="/productDetail">
+          <ProductDetail />
           </Route>
         </Switch>
         </div>

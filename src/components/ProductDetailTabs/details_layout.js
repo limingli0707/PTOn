@@ -40,7 +40,7 @@ export default function CenteredGrid() {
           </Paper>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>Description:<br/>
+          <Paper className={classes.paper}><div className={classes.label}>Description:</div>
           Keep covered on the wall wearing a climbing-specific stretch fleece with a full-face protective hood. The stretch,
           hard-faced heathered fleece resists abrasion against the rock and features a brushed back for next-to-skin comfort.
           Constructed with underarm and side gussets for ease of movement while scaling the wall. Thumb-loop cuffs and stretch panels

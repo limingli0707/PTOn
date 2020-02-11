@@ -50,7 +50,7 @@ const ProductDetailHeader = props => {
                     <Box ml={2}><Button variant="outlined" color='inherit'>Preview</Button></Box>
                 </Toolbar>
             </AppBar>
-            <Box pt={5} pl={5} pr={3} pb={5}>
+            <Box pt={5} pl={5} pr={5} pb={5}>
                 <Grid container alignItems="flex-start" justify="flex-start" direction="row" spacing={2}>
 
                     <Grid item xs={1.5}>
@@ -58,15 +58,16 @@ const ProductDetailHeader = props => {
                             <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg"/>
                         </Paper>
                     </Grid>
-                    <Grid item xs={2.5}>
+
+                    <Grid item xs={3.5}>
                         <Paper className={classes.paper}>
                             <ProductTitle productDescription="Diamond Stud Earrings" productId="SD12345"/>
                         </Paper>
                     </Grid>
-                    <Grid item xs={8}>
+
+                    <Grid item xs={12}>
                         <Paper className={classes.paper}>
                             <Grid container direction="row" spacing={2} justify="flex-end">
-
                                 <Grid item>
                                     <FormControl variant="outlined">
                                         <InputLabel>Language</InputLabel>

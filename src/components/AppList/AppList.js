@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3)
   },
   content: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    marginLeft: '15%'
   },
   pagination: {
     marginTop: theme.spacing(3),
@@ -67,9 +68,9 @@ const ProductList = () => {
             <Grid
               item
               key={product.id}
-              lg={4}
-              md={6}
-              xs={12}
+              lg={2}
+              md={2}
+              xs={4}
             >
               <AppCard product={product} />
             </Grid>

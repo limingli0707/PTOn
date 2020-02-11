@@ -72,13 +72,13 @@ const AppCard = props => {
         <Typography
           align="center"
           gutterBottom
-          variant="h4"
+          variant="h6"
         >
           {product.title}
         </Typography>
         <Typography
           align="center"
-          variant="body1"
+          variant="body2"
         >
           {product.description}
         </Typography>

@@ -25,7 +25,16 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     width: "100%",
-    height: "7em"
+    height: "7em",
+    position: "relative",
+    zIndex: 2
+  },
+  image: {
+    flexGrow: 1,
+    width: "100%",
+    height: "7em",
+    position: "relative",
+    zIndex: 4
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -73,14 +82,23 @@ const ProductDetailHeader = props => {
           </Box>
         </Toolbar>
       </AppBar> */}
+      <div className={classes.image}>
+        <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg" />
+      </div>
       <Card className={classes.root}>
         <CardContent>
-          <Grid container justify="flex-start" direction="row" spacing={0}  alignItems="center">
-            {/* <Grid item xs={2}>
-              <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg" />
-            </Grid> */}
+          <Grid
+            container
+            justify="flex-start"
+            direction="row"
+            spacing={0}
+            alignItems="center"
+          >
+            <Grid item xs={1}>
 
-            <Grid item xs={4}>
+            </Grid>
+
+            <Grid item xs={3}>
               <ProductTitle
                 productDescription="Diamond Stud Earrings"
                 productId="SD12345"
@@ -88,7 +106,13 @@ const ProductDetailHeader = props => {
             </Grid>
 
             <Grid item xs={8}>
-              <Grid container direction="row" spacing={6} justify="flex-end" alignItems="center">
+              <Grid
+                container
+                direction="row"
+                spacing={6}
+                justify="flex-end"
+                alignItems="center"
+              >
                 <Grid item>
                   <FormControl>
                     <InputLabel>Language</InputLabel>

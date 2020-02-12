@@ -5,7 +5,7 @@ import { grey } from '@material-ui/core/colors'
 const ProductTitle = props => {
 
     return (
-        <div>
+        <div style={{ paddingLeft: '20px'}}>
             <Typography variant="h4" style={{ color: grey[800]}}>{props.productDescription}</Typography>
             <Typography variant="h6" style={{ color: grey[700]}}>{props.productId}</Typography>
         </div>

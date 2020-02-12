@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 200
+    paddingTop: 50
   }
 }));
 

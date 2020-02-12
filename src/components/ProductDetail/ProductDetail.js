@@ -5,6 +5,7 @@ import ProductDetailHeader from "../ProductDetailHeader/ProductDetailHeader";
 import Analytics from "../Analytics/Analytics";
 import DetailTabs from "../ProductDetailTabs/details_tab";
 import { makeStyles } from "@material-ui/core/styles";
+import StoreMap from '../StoreMap/StoreMap';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,6 +39,9 @@ const ProductDetail = props => {
             </Grid>
             <Grid item xs={3}>
               <Analytics product={{ name: "Diamond Stud Earings" }} />
+            </Grid>
+            <Grid item xs={3}>
+              <StoreMap />
             </Grid>
           </Grid>
     </div>

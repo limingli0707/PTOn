@@ -59,6 +59,6 @@ export default [
     imageUrl: '/images/apps/Page_Speed_Optimizer_Pro.png',
     totalDownloads: '835',
     createdAt: '04/04/2019',
-    downloaded: false
+    downloaded: true
   }
 ];

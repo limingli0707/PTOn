@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     marginTop: theme.spacing(2),
-    marginLeft: '20%'
+    marginLeft: '15%'
   },
   pagination: {
     marginTop: theme.spacing(3),

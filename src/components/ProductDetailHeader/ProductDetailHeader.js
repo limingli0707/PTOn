@@ -11,6 +11,7 @@ import {
   CardContent,
   Paper
 } from "@material-ui/core";
+import SendIcon from "@material-ui/icons/Send";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -20,6 +21,11 @@ import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 import ProductAvatar from "../ProductAvatar/ProductAvatar";
 import ProductTitle from "../ProductTitle/ProductTitle";
+import SettingsRemoteIcon from "@material-ui/icons/SettingsRemote";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClone, faTasks } from '@fortawesome/free-solid-svg-icons';
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import AllOutIcon from "@material-ui/icons/AllOut";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     height: "7em",
     position: "relative",
     overflow: "visible"
+  },
+  button: {
+    margin: theme.spacing(1)
   },
   image: {
     margin: "-60px auto 0",
@@ -61,30 +70,52 @@ const ProductDetailHeader = props => {
 
   return (
     <div>
-      {/* <AppBar position="static">
-        <Toolbar>
+      <div position="static">
+        <Toolbar style={{ left: 15 }}>
           <Typography variant="h6" className={classes.title}></Typography>
-          <Box mr={2}>
-            <Button variant="outlined" color="inherit">
-              Default
-            </Button>
-          </Box>
-          <Button variant="outlined" color="inherit">
+          <Button
+            variant="contained"
+            color="inherit"
+            className={classes.button}
+            startIcon={<AllOutIcon />}
+          >
+            Default
+          </Button>
+          <Button
+            variant="contained"
+            color="inherit"
+            className={classes.button}
+            startIcon={<FontAwesomeIcon icon={faTasks} />}
+          >
             Task
           </Button>
-          <Button variant="outlined" color="inherit">
+          <Button
+            variant="contained"
+            color="inherit"
+            className={classes.button}
+            startIcon={ <FontAwesomeIcon icon={faClone} />}
+          >
             Duplicate
           </Button>
-          <Button variant="outlined" color="inherit">
+          <Button
+            variant="contained"
+            color="inherit"
+            className={classes.button}
+            startIcon={<SettingsRemoteIcon />}
+          >
             Remote
           </Button>
-          <Box ml={2}>
-            <Button variant="outlined" color="inherit">
-              Preview
-            </Button>
-          </Box>
+
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<SendIcon />}
+          >
+            Preview
+          </Button>
         </Toolbar>
-      </AppBar> */}
+      </div>
 
       <Card className={classes.root}>
         <CardContent>

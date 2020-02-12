@@ -25,7 +25,7 @@ export default [
     id: uuid(),
     title: 'Catalog Machine',
     description:
-      'One-button click to import and sync products',
+      'One-button click to import and sync products to quickly respond to market.',
     imageUrl: '/images/apps/Catalog_Machine.png',
     totalDownloads: '857',
     createdAt: '03/04/2019',
@@ -59,6 +59,6 @@ export default [
     imageUrl: '/images/apps/Page_Speed_Optimizer_Pro.png',
     totalDownloads: '835',
     createdAt: '04/04/2019',
-    downloaded: false
+    downloaded: true
   }
 ];

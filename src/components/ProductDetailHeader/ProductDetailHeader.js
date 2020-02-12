@@ -27,14 +27,17 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "7em",
     position: "relative",
-    zIndex: 2
+    overflow: "visible"
   },
   image: {
-    flexGrow: 1,
-    width: "100%",
-    height: "7em",
+    margin: "-60px auto 0",
+    width: "80%",
+    height: 140,
+    marginLeft: 1,
+    borderRadius: "4px",
+    boxShadow: "0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1)",
     position: "relative",
-    zIndex: 4
+    zIndex: 1000
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -82,9 +85,7 @@ const ProductDetailHeader = props => {
           </Box>
         </Toolbar>
       </AppBar> */}
-      <div className={classes.image}>
-        <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg" />
-      </div>
+
       <Card className={classes.root}>
         <CardContent>
           <Grid
@@ -95,17 +96,19 @@ const ProductDetailHeader = props => {
             alignItems="center"
           >
             <Grid item xs={1}>
-
+              <div className={classes.image}>
+                <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg" />
+              </div>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item xs={5}>
               <ProductTitle
                 productDescription="Diamond Stud Earrings"
                 productId="SD12345"
               />
             </Grid>
 
-            <Grid item xs={8}>
+            <Grid item xs={6}>
               <Grid
                 container
                 direction="row"

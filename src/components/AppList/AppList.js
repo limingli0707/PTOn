@@ -10,6 +10,7 @@ import {Box} from '@material-ui/core';
 import Sidebar from './components/Sidebar';
 import { Divider } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/More';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,7 +68,7 @@ const ProductList = () => {
         >
           <Grid item xs={12}>
             <Grid container  justify="space-between">
-            <Grid item xs={3}><Typography variant="h6">Top Free Apps</Typography></Grid>
+            <Grid item xs={3}><Chip size="medium" label="Top Free Apps" /></Grid>
             <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
             </Grid>
           </Grid>
@@ -90,7 +91,7 @@ const ProductList = () => {
         >
           <Grid item xs={12}>
             <Grid container  justify="space-between">
-            <Grid item xs={3}><Typography variant="h6">Store Design</Typography></Grid>
+            <Grid item xs={3}><Chip size="medium" label="Store Design" /></Grid>
             <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
             </Grid>
           </Grid>
@@ -113,7 +114,7 @@ const ProductList = () => {
         >
           <Grid item xs={12}>
             <Grid container  justify="space-between">
-            <Grid item xs={3}><Typography variant="h6">Orders and Shipping</Typography></Grid>
+            <Grid item xs={3}><Chip size="medium"  label="Orders and Shipping" /></Grid>
             <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
             </Grid>
           </Grid>

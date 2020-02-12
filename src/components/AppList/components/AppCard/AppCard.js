@@ -21,7 +21,7 @@ import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
-  root: {height: 260, overflow:'scroll'},
+  root: {height: 280, overflow:'scroll'},
   imageContainer: {
     height: 48,
     width: 48,
@@ -120,11 +120,15 @@ const AppCard = props => {
       <CardActions>
         <Grid
           container
-          justify="space-between"
+          justify="center"
+          alignItems="center"
+          direction="row"
+          spacing={2}
         >
           <Grid
             className={classes.statsItem}
             item
+            xs={10}
           >
             <IconButton size='small'><AccessTimeIcon className={classes.statsIcon} /></IconButton>
             <Typography
@@ -137,6 +141,7 @@ const AppCard = props => {
           <Grid
           className={classes.statsItem}
             item
+            xs={10}
           >
             {downloadStatus ===  downloadStatusEnum.DOWNLOADED &&  <IconButton size='small' color='primary' onClick={goToApp}><OpenInNewIcon className={classes.statsIcon}/></IconButton> }
             {downloadStatus ===  downloadStatusEnum.DOWNLOADING &&  <IconButton size='small'><CircularProgress  className={classes.statsIcon} size={20} value={progress} /></IconButton> }
@@ -148,7 +153,7 @@ const AppCard = props => {
               {product.totalDownloads} Downloads
             </Typography>
           </Grid>
-          <Grid item className={classes.statsItem}><Rating size="medium" name="read-only" defaultValue={4} readOnly /></Grid>
+          <Grid item xs={10} className={classes.statsItem}><Rating size="medium" name="read-only" defaultValue={4} readOnly /></Grid>
         </Grid>
       </CardActions>
     </Card>

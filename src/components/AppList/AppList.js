@@ -11,6 +11,8 @@ import Sidebar from './components/Sidebar';
 import { Divider } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/More';
 import Chip from '@material-ui/core/Chip';
+import DownloadedAppList from './components/DownloadedAppList';
+import AllAvailableAppList from './components/AllAvailableAppList';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,108 +40,11 @@ const ProductList = () => {
       <Box mt={20}> <AppsToolbar /></Box>
       <Sidebar />
 
-
-      <div id="downloadedApps" className={classes.content}>
-        <Grid
-          container
-          spacing={3}
-        >
-          {products.map(product => {
-            if (product.downloaded == true) return (
-            <Grid
-              item
-              key={product.id}
-              lg={2}
-              md={2}
-              xs={4}
-            >
-              <AppTile product={product} />
-            </Grid>
-          )}
-        )}
-        </Grid>
-      </div>
+      <DownloadedAppList products={products} />
 
       <Divider className={classes.divider} />
-      <div className={classes.content}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid item xs={12}>
-            <Grid container  justify="space-between">
-            <Grid item xs={3}><Chip size="medium" label="Top Free Apps" /></Grid>
-            <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
-            </Grid>
-          </Grid>
-          {products.map(product => (
-            <Grid
-              item
-              key={product.id}
-              lg={2}
-              md={2}
-              xs={4}
-            >
-              <AppCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
+      <AllAvailableAppList products={products} />
 
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid item xs={12}>
-            <Grid container  justify="space-between">
-            <Grid item xs={3}><Chip size="medium" label="Store Design" /></Grid>
-            <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
-            </Grid>
-          </Grid>
-          {products.map(product => (
-            <Grid
-              item
-              key={product.id}
-              lg={2}
-              md={2}
-              xs={4}
-            >
-              <AppCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
-
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid item xs={12}>
-            <Grid container  justify="space-between">
-            <Grid item xs={3}><Chip size="medium"  label="Orders and Shipping" /></Grid>
-            <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
-            </Grid>
-          </Grid>
-          {products.map(product => (
-            <Grid
-              item
-              key={product.id}
-              lg={2}
-              md={2}
-              xs={4}
-            >
-              <AppCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
-      <div className={classes.pagination}>
-        <Typography variant="caption">1-6 of 20</Typography>
-        <IconButton>
-          <ChevronLeftIcon />
-        </IconButton>
-        <IconButton>
-          <ChevronRightIcon />
-        </IconButton>
-      </div>
     </div>
   );
 };

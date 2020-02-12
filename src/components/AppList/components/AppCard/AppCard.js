@@ -21,7 +21,10 @@ import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
-  root: {height: 280, overflow:'scroll'},
+  root: {
+    height: 280, 
+    overflow:'scroll'
+  },
   imageContainer: {
     height: 48,
     width: 48,

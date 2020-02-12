@@ -39,6 +39,12 @@ const useStyles = makeStyles(theme => ({
   statsIcon: {
     color: theme.palette.icon,
     marginRight: theme.spacing(1)
+  },
+  productTile: {
+    borderRadius: "20px",
+    maxHeight: "160px",
+    background: "rgba(255, 255, 255, 0.1)",
+    border: "solid 1px white"
   }
 }));
 const AppTile = props => {
@@ -59,7 +65,7 @@ const AppTile = props => {
   return (
     <Card
       {...rest}
-      className={clsx(classes.root, className)}
+      className={classes.productTile}
     >
       <CardContent>
         <div className={classes.imageContainer}>
@@ -72,7 +78,7 @@ const AppTile = props => {
         <Typography
           align="center"
           gutterBottom
-          variant="h6"
+          variant="h7"
         >
           {product.title}
         </Typography>

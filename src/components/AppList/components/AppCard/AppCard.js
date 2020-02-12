@@ -16,10 +16,12 @@ import DoneIcon from '@material-ui/icons/Done';
 import IconButton from '@material-ui/core/IconButton';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
-import CircularProgress from '@material-ui/core/CircularProgress'
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
-  root: {height: 280},
+  root: {height: 260, overflow:'scroll'},
   imageContainer: {
     height: 48,
     width: 48,
@@ -124,7 +126,7 @@ const AppCard = props => {
             className={classes.statsItem}
             item
           >
-            <IconButton><AccessTimeIcon className={classes.statsIcon} /></IconButton>
+            <IconButton size='small'><AccessTimeIcon className={classes.statsIcon} /></IconButton>
             <Typography
               display="inline"
               variant="body2"
@@ -133,12 +135,12 @@ const AppCard = props => {
             </Typography>
           </Grid>
           <Grid
-            className={classes.statsItem}
+          className={classes.statsItem}
             item
           >
-            {downloadStatus ===  downloadStatusEnum.DOWNLOADED &&  <IconButton color='primary' onClick={goToApp}><OpenInNewIcon className={classes.statsIcon}/></IconButton> }
-            {downloadStatus ===  downloadStatusEnum.DOWNLOADING &&  <IconButton><CircularProgress  className={classes.statsIcon} size={20} value={progress} /></IconButton> }
-            {downloadStatus ===  downloadStatusEnum.NEW &&  <IconButton color='primary' onClick={handleDownload}><CloudDownload className={classes.statsIcon} /> </IconButton> }
+            {downloadStatus ===  downloadStatusEnum.DOWNLOADED &&  <IconButton size='small' color='primary' onClick={goToApp}><OpenInNewIcon className={classes.statsIcon}/></IconButton> }
+            {downloadStatus ===  downloadStatusEnum.DOWNLOADING &&  <IconButton size='small'><CircularProgress  className={classes.statsIcon} size={20} value={progress} /></IconButton> }
+            {downloadStatus ===  downloadStatusEnum.NEW &&  <IconButton size='small' color='primary' onClick={handleDownload}><CloudDownload className={classes.statsIcon} /> </IconButton> }
             <Typography
               display="inline"
               variant="body2"
@@ -146,6 +148,7 @@ const AppCard = props => {
               {product.totalDownloads} Downloads
             </Typography>
           </Grid>
+          <Grid item className={classes.statsItem}><Rating size="medium" name="read-only" defaultValue={4} readOnly /></Grid>
         </Grid>
       </CardActions>
     </Card>

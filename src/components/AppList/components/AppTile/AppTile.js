@@ -78,7 +78,7 @@ const AppTile = props => {
         <Typography
           align="center"
           gutterBottom
-          variant="h7"
+          variant="h6"
         >
           {product.title}
         </Typography>

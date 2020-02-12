@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid} from '@material-ui/core';
 import AppTile from '../AppTile';
 import { makeStyles } from '@material-ui/styles';
+import {useApps} from '../AppContextProvider/AppContextProvider';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -12,11 +13,12 @@ const useStyles = makeStyles(theme => ({
 
 const DownloadedAppList = props => {
     const classes = useStyles();
+    const [apps, setApps] = useApps();
     return (      
     <div id="downloadedApps" className={classes.root}>
       <Grid container spacing={3}>
-      {props.products.map(product => {
-        if (product.downloaded == true) return (
+      {apps.map(product => {
+         return (
         <Grid
           item
           key={product.id}

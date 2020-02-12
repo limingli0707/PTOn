@@ -55,7 +55,7 @@ export default [
     id: uuid(),
     title: 'Page Speed Optimizer',
     description:
-      'Speed Up your store in 60 Seconds.',
+      'Speed Up your store in 60 Seconds. No code at all!',
     imageUrl: '/images/apps/Page_Speed_Optimizer_Pro.png',
     totalDownloads: '835',
     createdAt: '04/04/2019',

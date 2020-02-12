@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
@@ -16,11 +16,13 @@ import DoneIcon from '@material-ui/icons/Done';
 import IconButton from '@material-ui/core/IconButton';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
+import CircularProgress from '@material-ui/core/CircularProgress'
+
 const useStyles = makeStyles(theme => ({
-  root: {height: 250},
+  root: {height: 280},
   imageContainer: {
-    height: 64,
-    width: 64,
+    height: 48,
+    width: 48,
     margin: '0 auto',
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: '5px',
@@ -45,11 +47,40 @@ const AppCard = props => {
   let history = useHistory();
   const { className, product, ...rest } = props;
   const classes = useStyles();
-  const [isDownloaded, setIsDownloaded] = useState(false);
+  const downloadStatusEnum = Object.freeze({
+    DOWNLOADED:   'downloaded',
+    DOWNLOADING:  'downloading',
+    NEW: 'new'
+  });
+  const [downloadStatus, setDownloadStatus] = useState(downloadStatusEnum.NEW);
+  const [progress, setProgress] = React.useState(0);
+  
+  function tick() {
+    setProgress(oldProgress => {
+      if(oldProgress< 100)
+      {
+        return oldProgress + 1;
+      }
+      return oldProgress;
+    });
+  }
+
+  useEffect(()=>{
+    if (downloadStatus === downloadStatusEnum.DOWNLOADING && progress === 0) {
+      setInterval(tick, 20);
+    }
+    if (progress >= 100) {
+      setDownloadStatus(downloadStatusEnum.DOWNLOADED);
+    }
+    console.log(downloadStatus);
+    console.log(progress);
+  },[progress]);
+
+
   function handleDownload(e) {
     e.preventDefault();
-    console.log('handle download');
-    setIsDownloaded(true);
+    setDownloadStatus(downloadStatusEnum.DOWNLOADING);
+    setInterval((tick), 20);
   }
   function goToApp(e) {
     e.preventDefault();
@@ -72,7 +103,7 @@ const AppCard = props => {
         <Typography
           align="center"
           gutterBottom
-          variant="h6"
+          variant="subtitle2"
         >
           {product.title}
         </Typography>
@@ -93,7 +124,7 @@ const AppCard = props => {
             className={classes.statsItem}
             item
           >
-            <AccessTimeIcon className={classes.statsIcon} />
+            <IconButton><AccessTimeIcon className={classes.statsIcon} /></IconButton>
             <Typography
               display="inline"
               variant="body2"
@@ -105,9 +136,9 @@ const AppCard = props => {
             className={classes.statsItem}
             item
           >
-            {isDownloaded ? 
-            <IconButton color='primary' onClick={goToApp}><OpenInNewIcon /></IconButton> : 
-            <IconButton color='primary' onClick={handleDownload}><CloudDownload className={classes.statsIcon} /> </IconButton>}
+            {downloadStatus ===  downloadStatusEnum.DOWNLOADED &&  <IconButton color='primary' onClick={goToApp}><OpenInNewIcon className={classes.statsIcon}/></IconButton> }
+            {downloadStatus ===  downloadStatusEnum.DOWNLOADING &&  <IconButton><CircularProgress  className={classes.statsIcon} size={20} value={progress} /></IconButton> }
+            {downloadStatus ===  downloadStatusEnum.NEW &&  <IconButton color='primary' onClick={handleDownload}><CloudDownload className={classes.statsIcon} /> </IconButton> }
             <Typography
               display="inline"
               variant="body2"

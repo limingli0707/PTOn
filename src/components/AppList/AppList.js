@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     marginTop: theme.spacing(2),
-    marginLeft: '15%'
+    marginLeft: '20%'
   },
   pagination: {
     marginTop: theme.spacing(3),
@@ -68,7 +68,7 @@ const ProductList = () => {
           <Grid item xs={12}>
             <Grid container  justify="space-between">
             <Grid item xs={3}><Typography variant="h6">Top Free Apps</Typography></Grid>
-            <Grid item xs={1}><Button variant="contained" color="primary">See More</Button></Grid>
+            <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
             </Grid>
           </Grid>
           {products.map(product => (
@@ -91,7 +91,7 @@ const ProductList = () => {
           <Grid item xs={12}>
             <Grid container  justify="space-between">
             <Grid item xs={3}><Typography variant="h6">Store Design</Typography></Grid>
-            <Grid item xs={1}><Button variant="contained" color="primary">See More</Button></Grid>
+            <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
             </Grid>
           </Grid>
           {products.map(product => (
@@ -114,7 +114,7 @@ const ProductList = () => {
           <Grid item xs={12}>
             <Grid container  justify="space-between">
             <Grid item xs={3}><Typography variant="h6">Orders and Shipping</Typography></Grid>
-            <Grid item xs={1}><Button variant="contained" color="primary">See More</Button></Grid>
+            <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
             </Grid>
           </Grid>
           {products.map(product => (

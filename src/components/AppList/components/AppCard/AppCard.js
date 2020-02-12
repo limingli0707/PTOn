@@ -19,6 +19,7 @@ import { useHistory } from "react-router-dom";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
+import {useApps} from '../AppContextProvider/AppContextProvider';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,6 +53,7 @@ const AppCard = props => {
   let history = useHistory();
   const { className, product, ...rest } = props;
   const classes = useStyles();
+  const [apps, setApps] = useApps();
   const downloadStatusEnum = Object.freeze({
     DOWNLOADED:   'downloaded',
     DOWNLOADING:  'downloading',
@@ -76,6 +78,10 @@ const AppCard = props => {
     }
     if (progress >= 100) {
       setDownloadStatus(downloadStatusEnum.DOWNLOADED);
+      setApps(prevState => {
+        return [...prevState, product];
+      })
+      console.log(apps);
     }
     console.log(downloadStatus);
     console.log(progress);

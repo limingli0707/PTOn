@@ -1,12 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import AppCard from '../AppCard';
-import MoreIcon from '@material-ui/icons/More';
 import Chip from '@material-ui/core/Chip';
-import { IconButton, Grid, Typography, Button } from '@material-ui/core';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-
+import { Grid, Button } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     root: {
       marginTop: theme.spacing(2),

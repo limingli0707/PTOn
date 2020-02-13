@@ -44,7 +44,8 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "40px",
     maxHeight: "150px",
     background: "rgba(255, 255, 255, 0.3)",
-    border: "solid 2px white"
+    border: "solid 2px white",
+    cursor: "pointer"
   }
 }));
 const AppTile = props => {

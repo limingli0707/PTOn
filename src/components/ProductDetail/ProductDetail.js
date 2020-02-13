@@ -6,6 +6,8 @@ import Analytics from "../Analytics/Analytics";
 import DetailTabs from "../ProductDetailTabs/details_tab";
 import { makeStyles } from "@material-ui/core/styles";
 import StoreMap from '../StoreMap/StoreMap';
+import PriceBook from '../PriceBooks/PriceBook';
+import EinsteinRecommendations from '../EinsteinRecommendations/EinsteinRecommendations'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,6 +44,12 @@ const ProductDetail = props => {
             </Grid>
             <Grid item xs={3}>
               <StoreMap />
+            </Grid>
+            <Grid item xs={6}>
+              <PriceBook />
+            </Grid>
+            <Grid item xs={3}>
+              <EinsteinRecommendations />
             </Grid>
           </Grid>
     </div>

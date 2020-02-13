@@ -77,7 +77,8 @@ interface StyledTabProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
-      maxWidth: "100%"
+      maxWidth: "100%",
+      height: "522px",
     },
     media: {
       height: 0,
@@ -171,6 +172,7 @@ export default function PerformanceLayout({ product }) {
                 </IconButton>
               </Avatar>
             }
+            titleTypographyProps={{ variant: "h6" }}
             title={product.name}
           />
           <CardActions disableSpacing>

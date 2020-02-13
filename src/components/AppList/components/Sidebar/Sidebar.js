@@ -103,7 +103,8 @@ const Sidebar = props => {
           className={classes.nav}
           pages={pages}
         />
-        <Box mt={4}><UpgradePlan /></Box>
+        <Divider className={classes.divider} />
+        <UpgradePlan />
       </div>
     </Drawer>
   );

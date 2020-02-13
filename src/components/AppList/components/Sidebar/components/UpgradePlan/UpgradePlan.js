@@ -6,7 +6,7 @@ import { Typography, Button, colors } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: colors.grey[50]
+    backgroundColor: 'white'
   },
   media: {
     paddingTop: theme.spacing(2),

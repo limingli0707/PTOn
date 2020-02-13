@@ -60,12 +60,18 @@ const AppTile = props => {
   function goToApp(e) {
     e.preventDefault();
     console.log('go to app');
-    history.push('/productDetail');
+    history.push('/productList');
   }
+  // function goToApp(e) {
+  //   e.preventDefault();
+  //   console.log('go to app');
+  //   history.push('/productDetail');
+  // }
   return (
     <Card
       {...rest}
       className={classes.productTile}
+      onClick={goToApp}
     >
       <CardContent>
         <div className={classes.imageContainer}>

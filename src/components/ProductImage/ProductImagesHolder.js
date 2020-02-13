@@ -62,33 +62,21 @@ class ProductImagesHolder extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, products } = this.state;
-
+    const { products } = this.state;
+    console.log('proucts: ', products)
+    
     const imagePlaceholder = {
-      marginLeft: -15,
       width: "100%",
-      height: "400px",
+      maxHeight: "415px",
       overflow: "scroll",
-      overflowX: "hidden",
-      backgroundColor: "white"
-    };
-
-    const avatar = {
-      backgroundColor: "red"
-    };
-
-    const headerStyle = {
-      padding: "10px",
-      listStyle: "none",
-      display: "flex",
-      justifyContent: "space-between"
+      overflowX: "hidden"
     };
 
     return (
       <Card>
         <CardHeader
           avatar={
-            <Avatar aria-label="recipe" className={avatar}>
+            <Avatar aria-label="recipe" style={{backgroundColor: red[500]}}>
               <PermMediaIcon />
             </Avatar>
           }
@@ -101,7 +89,7 @@ class ProductImagesHolder extends React.Component {
             </Button>
           }
           titleTypographyProps={{ variant: "h6" }}
-          title={"Images (" + (products.length || 6) + ")"}
+          title={"Images (" + (products.length || 0) + ")"}
         />
         <CardContent style={imagePlaceholder}>
           <ProductImages products={products} />

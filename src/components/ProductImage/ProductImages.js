@@ -1,33 +1,27 @@
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
 
 import React from "react";
 
-const testData = [
-    { name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook" },
-    { name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu" },
-    { name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook" }, { name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook" },
-    { name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu" },
-    { name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook" }, { name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook" },
-    { name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu" },
-    { name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook" }
-,   { name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook" },
-    { name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu" },
-    { name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook" }, { name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook" },
-    { name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu" },
-    { name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook" }
-];
-
-const ProductImages = (props) => (
-    <div>
-        <GridList cols={3} style={{ marginLeft: "20px", alignContent:"center"}}>
-            { testData.map(tile => (
-                <GridListTile key={tile.avatar_url}>
-                    <img style={{ width: "120px", height: "120px" }} src={tile.avatar_url} alt={tile.name} />
-                </GridListTile>
-            ))}
-        </GridList>
-    </div>
+const ProductImages = ({products}) => (
+  <div>
+    <GridList cols={3} style={{ marginRight: "20px", marginLeft: "20px", alignContent: "center" }}>
+      {products.map(tile => (
+        <GridListTile key={tile.avatar_url} style={{maxHeight: '130px'}}>
+          <img
+            style={{
+              width: "110px",
+              height: "110px",
+              borderRadius: "10px",
+              boxShadow: "0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1)",
+            }}
+            src={tile.avatar_url}
+            alt={tile.name}
+          />
+        </GridListTile>
+      ))}
+    </GridList>
+  </div>
 );
 
 export default ProductImages;

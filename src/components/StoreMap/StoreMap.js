@@ -38,7 +38,7 @@ const StoreMap = () => {
       projection="geoAzimuthalEqualArea"
       projectionConfig={{
         rotate: [58.0, 20.0],
-        scale: 5gi00
+        scale: 500
       }}
     >
       <Geographies geography={geoUrl}>

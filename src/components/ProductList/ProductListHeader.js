@@ -1,24 +1,45 @@
 import React, { useState } from 'react';
-import { Button, Select, TextField, AppBar, Typography, Toolbar, Box, Paper } from '@material-ui/core';
+import {Button, Select, TextField, AppBar, Typography, Toolbar, Box, Paper, CardContent, Card, Divider} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import DirectionsIcon from '@material-ui/icons/Directions';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import ProductTitle from "../ProductTitle/ProductTitle";
+import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
+import AllOutIcon from "@material-ui/icons/AllOut";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClone, faTasks, faFilter, faInfo} from "@fortawesome/free-solid-svg-icons";
+import SettingsRemoteIcon from "@material-ui/icons/SettingsRemote";
+import SendIcon from "@material-ui/icons/Send";
+import {grey} from "@material-ui/core/colors";
+import ProductAvatar from "../ProductAvatar/ProductAvatar";
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        width: "100%",
+        height: "7em",
+        position: "relative",
+        overflow: "visible"
     },
     menuButton: {
         marginRight: theme.spacing(2),
     },
     title: {
         flexGrow: 1,
+        color: grey[800],
+        fontSize: '1.8em'
+    },
+    subTitle: {
+        color: grey[700],
+        fontSize: '1em'
     },
     paper: {
         padding: theme.spacing(2),
@@ -31,6 +52,8 @@ const useStyles = makeStyles(theme => ({
     input: {
         marginLeft: theme.spacing(1),
         flex: 1,
+        width:400,
+        border: "1px solid #eee",
     },
     iconButton: {
         padding: 10,
@@ -43,84 +66,137 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1),
         minWidth: 120,
     },
+    button: {
+        margin: theme.spacing(1)
+    },
+    image: {
+        margin: "-60px auto 0",
+        width: "80%",
+        height: 140,
+        marginLeft: 1,
+        borderRadius: "4px",
+        boxShadow: "0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1)",
+        position: "relative",
+        zIndex: 1000
+    },
 }));
 
 const ProductListHeader = props => {
     const classes = useStyles();
-    const [status, setStatus] = React.useState('');
 
     return (
-        <div>
-            <Box pt={5} pl={5} pr={5} pb={5}>
-                <Grid container alignItems="flex-start" justify="flex-start" direction="row" >
+        <div style={{padding:"20px"}}>
 
-                    <Grid item xs={4}>
-                        <Paper className={classes.paper}>
+            <div position="static">
+                <Toolbar style={{ left: 15 }}>
+                    <Typography variant="h6" className={classes.title}></Typography>
+                    <Button
+                        variant="contained"
+                        color="inherit"
+                        className={classes.button}
+                        startIcon={<AllOutIcon />}
+                    >
+                        Offline
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="inherit"
+                        className={classes.button}
+                        startIcon={<FontAwesomeIcon icon={faTasks} />}
+                    >
+                        Task
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="inherit"
+                        className={classes.button}
+                        startIcon={ <FontAwesomeIcon icon={faClone} />}
+                    >
+                        Duplicate
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="inherit"
+                        className={classes.button}
+                        startIcon={<SettingsRemoteIcon />}
+                    >
+                        Publish
+                    </Button>
 
-                            <Grid container alignItems="flex-start" justify="flex-start" direction="row" spacing={10}>
-                                <Grid item><div><Typography variant="h5">Jewellery/Sale</Typography></div></Grid>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        startIcon={<SendIcon />}
+                    >
+                        Preview
+                    </Button>
+                </Toolbar>
+            </div>
+
+            <Card className={classes.root}>
+                <CardContent>
+                    <Grid
+                        container
+                        justify="flex-start"
+                        direction="row"
+                        spacing={0}
+                        alignItems="center"
+                    >
+                        <Grid item xs={1}>
+                            <div className={classes.image}>
+                                <ProductAvatar source="https://previews.123rf.com/images/brisker/brisker1605/brisker160500027/58489983-16-icons-of-different-products-categories-for-online-shops.jpg" />
+                            </div>
+                        </Grid>
+
+                        <Grid item xs={2}>
+                            <div >
+                                <Typography variant="h4" className={classes.title}>PRODUCTS</Typography>
+                                <Typography variant="h7" className={classes.subTitle}>100 Products * 80 Active</Typography>
+                            </div>
+                        </Grid>
+
+                        <Grid item xs={9}>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="flex-end"
+                                alignItems="center"
+                            >
                                 <Grid item>
-
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel id="demo-simple-select-label">Status</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={status}
-                                            onChange={setStatus}
-                                        >
-                                            <MenuItem value={10}>Online</MenuItem>
-                                            <MenuItem value={20}>Offline</MenuItem>
-                                        </Select>
-                                    </FormControl>
-
+                                    <IconButton className={classes.iconButton} aria-label="menu">
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item>
+                                    <InputBase
+                                        className={classes.input}
+                                        placeholder="Search Products"
+                                        inputProps={{ 'aria-label': 'search products' }}
+                                    />
+                                </Grid>
+                                <Grid item>
+                                    <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item>
+                                    <Divider className={classes.divider} orientation="vertical" />
+                                </Grid>
+                                <Grid item>
+                                    <FontAwesomeIcon icon={faFilter} className={classes.iconButton} />
+                                </Grid>
+                                <Grid item>
+                                    <Divider className={classes.divider} orientation="vertical" />
+                                </Grid>
+                                <Grid item>
+                                    <FontAwesomeIcon icon={faInfo} className={classes.iconButton}/>
                                 </Grid>
                             </Grid>
-
-                            <Box pt={5}><div>
-                                <Typography variant="h7">100 Products - 80 Active</Typography>
-                            </div></Box>
-                        </Paper>
+                        </Grid>
                     </Grid>
-
-                    <Grid item xs={8}>
-                        <Paper className={classes.paper}>
-                            <Grid container alignItems="flex-start" justify="flex-end" direction="column" >
-                                <Grid container alignItems="flex-start" justify="flex-end" direction="row" spacing={2}>
-                                    <Grid item><Button variant="outlined" color='inherit'>Offline</Button></Grid>
-                                    <Grid item><Button variant="outlined" color='inherit'>Task</Button></Grid>
-                                    <Grid item><Button variant="outlined" color='inherit'>Promote</Button></Grid>
-                                    <Grid item><Button variant="outlined" color='inherit'>Publish</Button></Grid>
-                                    <Grid item><Button variant="outlined" color='inherit'>Preview</Button></Grid>
-                                </Grid>
-
-                                <Grid container alignItems="flex-start" justify="flex-end" direction="row" spacing={2}>
-                                    <Box pt={5}>
-
-                                        <Paper component="form" className={classes.root}>
-
-                                            <IconButton className={classes.iconButton} aria-label="menu">
-                                                <MenuIcon />
-                                            </IconButton>
-                                            <InputBase
-                                                className={classes.input}
-                                                placeholder="Search Products"
-                                                inputProps={{ 'aria-label': 'search products' }}
-                                            />
-                                            <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                                                <SearchIcon />
-                                            </IconButton>
-
-                                        </Paper>
-                                    </Box>
-                                </Grid>
-
-                            </Grid>
-                        </Paper>
-                    </Grid>
-
-                </Grid>
-            </Box>
+                </CardContent>
+            </Card>
         </div>
     );
 };

@@ -5,6 +5,11 @@ import { withStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
 
 const styles = theme => ({
   flexContainer: {
@@ -36,6 +41,37 @@ const styles = theme => ({
   },
 });
 
+
+function SimpleMenu() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        <ArrowDropDownIcon />
+      </Button>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Edit</MenuItem>
+        <MenuItem onClick={handleClose}>Delete</MenuItem>
+      </Menu>
+    </div>
+  );
+}
+
 class MuiVirtualizedTable extends React.PureComponent {
   static defaultProps = {
     headerHeight: 48,
@@ -52,6 +88,7 @@ class MuiVirtualizedTable extends React.PureComponent {
 
   cellRenderer = ({ cellData, columnIndex }) => {
     const { columns, classes, rowHeight, onRowClick } = this.props;
+
     return (
       <TableCell
         component="div"
@@ -62,7 +99,12 @@ class MuiVirtualizedTable extends React.PureComponent {
         style={{ height: rowHeight }}
         align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
       >
-        {columnIndex === 0 ? <div><img width="60" height="60" style={{ paddingRight: "10px" }} src="https://avatars0.githubusercontent.com/u/810438?v=4"></img><a href="/productdetail" style={{textDecoration:"none"}}>{cellData}</a></div> : cellData}
+        {columnIndex === 0 ? 
+        <div>
+          <img width="60" height="60" style={{ paddingRight: "10px" }} src={cellData}></img>
+          </div> : columnIndex === 1 ? <
+            a href="/productDetail" style={{textDecoration:"none", fontWeight: "bold"}}>{cellData}</a> : 
+            columnIndex === 8 ? <SimpleMenu /> : cellData }
       </TableCell>
     );
   };
@@ -145,15 +187,15 @@ MuiVirtualizedTable.propTypes = {
 const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 const sample = [
-  ['Apex BionicJacket', 159, 6.0, 24, 'Footwear', 'Dec 12, 2017', 'Online'],
-  ['Denali Jacket', 237, 9.0, 37, 'gear', 'Jan 12, 2018', 'Offline'],
-  ['Quantum Jacket', 262, 16.0, 24, 'Apparel', 'Feb 12, 2019', 'Offline'],
-  ['Base Camp Hot', 305, 3.7, 67, 'March', 'Dec 12, 2020', 'Online'],
-  ['Denali Gloves', 356, 16.0, 49, 'gear', 'Aug 12, 2020', 'Online'],
+  ['https://avatars0.githubusercontent.com/u/810438?v=4','Apex BionicJacket', 159, 6.0, 24, 'Footwear', 'Dec 12, 2017', 'Online'],
+  ['https://avatars2.githubusercontent.com/u/6820?v=4','Denali Jacket', 237, 9.0, 37, 'gear', 'Jan 12, 2018', 'Offline'],
+  ['https://avatars2.githubusercontent.com/u/63648?v=4','Quantum Jacket', 262, 16.0, 24, 'Apparel', 'Feb 12, 2019', 'Offline'],
+  ['https://avatars0.githubusercontent.com/u/810438?v=4','Base Camp Hot', 305, 3.7, 67, 'March', 'Dec 12, 2020', 'Online'],
+  ['https://avatars2.githubusercontent.com/u/63648?v=4','Denali Gloves', 356, 16.0, 49, 'gear', 'Aug 12, 2020', 'Online'],
 ];
 
-function createData(id, product, price, variations, available, type, datecreated, status) {
-  return { id, product, price, variations, available, type, datecreated, status };
+function createData(id, image, product, price, variations, available, type, datecreated, status, dropdown) {
+  return { id, image, product, price, variations, available, type, datecreated, status, dropdown };
 }
 
 const rows = [];
@@ -171,6 +213,12 @@ export default function ReactVirtualizedTable() {
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
+          {
+            width: 100,
+            flexGrow: 0.5,
+            label: '',
+            dataKey: 'image',
+          },
           {
             width: 250,
             flexGrow: 0.5,
@@ -218,6 +266,12 @@ export default function ReactVirtualizedTable() {
             label: 'Status',
             dataKey: 'status',
             numeric: true,
+          },
+          {
+            width: 100,
+            flexGrow: 0.5,
+            label: '',
+            dataKey: 'dropdown',
           }
         ]}
       />

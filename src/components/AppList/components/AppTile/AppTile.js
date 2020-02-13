@@ -44,7 +44,8 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "40px",
     maxHeight: "150px",
     background: "rgba(255, 255, 255, 0.3)",
-    border: "solid 2px white"
+    border: "solid 2px white",
+    cursor: "pointer"
   }
 }));
 const AppTile = props => {
@@ -60,12 +61,18 @@ const AppTile = props => {
   function goToApp(e) {
     e.preventDefault();
     console.log('go to app');
-    history.push('/productDetail');
+    history.push('/productList');
   }
+  // function goToApp(e) {
+  //   e.preventDefault();
+  //   console.log('go to app');
+  //   history.push('/productDetail');
+  // }
   return (
     <Card
       {...rest}
       className={classes.productTile}
+      onClick={goToApp}
     >
       <CardContent>
         <div className={classes.imageContainer}>

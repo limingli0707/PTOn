@@ -20,6 +20,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import {useApps} from '../AppContextProvider/AppContextProvider';
+import { getDynamicStyles } from 'jss';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -87,7 +88,11 @@ const AppCard = props => {
     console.log(progress);
   },[progress]);
 
-
+  function getStyles () {
+    return {
+      backgroundColor: downloadStatus === downloadStatusEnum.DOWNLOADED ? '#81D4FA' : 'white'
+    };
+  }
   function handleDownload(e) {
     e.preventDefault();
     setDownloadStatus(downloadStatusEnum.DOWNLOADING);
@@ -102,6 +107,7 @@ const AppCard = props => {
     <Card
       {...rest}
       className={clsx(classes.root, className)}
+      style={getStyles()}
     >
       <CardContent>
         <div className={classes.imageContainer}>
@@ -125,6 +131,7 @@ const AppCard = props => {
           {product.description}
         </Typography>
       </CardContent>
+      <Divider />
       <Divider />
       <CardActions>
         <Grid

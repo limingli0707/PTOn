@@ -17,17 +17,17 @@ const markers = [
     name: "Buenos Aires",
     coordinates: [-58.3816, -34.6037]
   },
-  { markerOffset: 15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
-  { markerOffset: 15, name: "Brasilia", coordinates: [-47.8825, -15.7942] },
-  { markerOffset: 15, name: "Santiago", coordinates: [-70.6693, -33.4489] },
-  { markerOffset: 15, name: "Bogota", coordinates: [-74.0721, 4.711] },
-  { markerOffset: 15, name: "Quito", coordinates: [-78.4678, -0.1807] },
-  { markerOffset: -30, name: "Georgetown", coordinates: [-58.1551, 6.8013] },
-  { markerOffset: -30, name: "Asuncion", coordinates: [-57.5759, -25.2637] },
-  { markerOffset: 15, name: "Paramaribo", coordinates: [-55.2038, 5.852] },
-  { markerOffset: 15, name: "Montevideo", coordinates: [-56.1645, -34.9011] },
-  { markerOffset: 15, name: "Caracas", coordinates: [-66.9036, 10.4806] },
-  { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] }
+  { markerOffset: 15, name: "La Paz (15)", coordinates: [-68.1193, -16.4897] },
+  { markerOffset: 15, name: "Brasilia (27)", coordinates: [-47.8825, -15.7942] },
+  { markerOffset: 15, name: "Santiago (312)", coordinates: [-70.6693, -33.4489] },
+  { markerOffset: 15, name: "Bogota (4)", coordinates: [-74.0721, 4.711] },
+  { markerOffset: 15, name: "Quito (99)", coordinates: [-78.4678, -0.1807] },
+  { markerOffset: -30, name: "Georgetown (125)", coordinates: [-58.1551, 6.8013] },
+  { markerOffset: -30, name: "Asuncion (132)", coordinates: [-57.5759, -25.2637] },
+  { markerOffset: 15, name: "Paramaribo (98)", coordinates: [-55.2038, 5.852] },
+  { markerOffset: 15, name: "Montevideo (47)", coordinates: [-56.1645, -34.9011] },
+  { markerOffset: 15, name: "Caracas (261)", coordinates: [-66.9036, 10.4806] },
+  { markerOffset: 15, name: "Lima (74)", coordinates: [-77.0428, -12.0464] }
 ];
 
 const StoreMap = () => {
@@ -38,7 +38,7 @@ const StoreMap = () => {
       projection="geoAzimuthalEqualArea"
       projectionConfig={{
         rotate: [58.0, 20.0],
-        scale: 400
+        scale: 500
       }}
     >
       <Geographies geography={geoUrl}>

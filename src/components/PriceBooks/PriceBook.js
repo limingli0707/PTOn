@@ -10,7 +10,7 @@ const PriceBook = () => {
         title="Price Books"
         titleTypographyProps={{ variant: "h6" }}
         avatar={
-          <Avatar style={{ backgroundColor: blue[900] }}>
+          <Avatar style={{ backgroundColor: blue[500] }}>
             <AccountBalanceIcon />
           </Avatar>
         }

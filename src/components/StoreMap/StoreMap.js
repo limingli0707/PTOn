@@ -59,7 +59,7 @@ const StoreMap = () => {
         title="Store and Inventory"
         titleTypographyProps={{ variant: "h6" }}
         avatar={
-          <Avatar aria-label="recipe" style={{ backgroundColor: blue[900] }}>
+          <Avatar aria-label="recipe" style={{ backgroundColor: blue[500] }}>
             <StorefrontIcon />
           </Avatar>
         }

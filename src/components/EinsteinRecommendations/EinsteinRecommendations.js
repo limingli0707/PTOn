@@ -10,7 +10,7 @@ const EinsteinRecommendations = () => {
         title="Einstein Recommendations"
         titleTypographyProps={{ variant: "h6" }}
         avatar={
-          <Avatar style={{ backgroundColor: blue[900] }}>
+          <Avatar style={{ backgroundColor: blue[500] }}>
             <DynamicFeedIcon />
           </Avatar>
         }

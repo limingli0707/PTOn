@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Button, Select, TextField, AppBar, Typography, Toolbar, Box, Paper, CardContent, Card, Divider} from '@material-ui/core';
+import {Button, Select, TextField, AppBar, Typography, Toolbar, Box, Paper, CardContent, Card, Divider, FormControlLabel, Checkbox, Slider} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import InputBase from '@material-ui/core/InputBase';
@@ -20,6 +20,11 @@ import SettingsRemoteIcon from "@material-ui/icons/SettingsRemote";
 import SendIcon from "@material-ui/icons/Send";
 import {grey} from "@material-ui/core/colors";
 import ProductAvatar from "../ProductAvatar/ProductAvatar";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -79,10 +84,33 @@ const useStyles = makeStyles(theme => ({
         position: "relative",
         zIndex: 1000
     },
+    dialogControl: {
+        width:500,
+    },
 }));
 
 const ProductListHeader = props => {
     const classes = useStyles();
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const [value, setValue] = React.useState([10, 50]);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    function valuetext(value) {
+        return `$${value}`;
+    }
 
     return (
         <div style={{padding:"20px"}}>
@@ -152,7 +180,7 @@ const ProductListHeader = props => {
                         <Grid item xs={2}>
                             <div >
                                 <Typography variant="h4" className={classes.title}>PRODUCTS</Typography>
-                                <Typography variant="h7" className={classes.subTitle}>100 Products * 80 Active</Typography>
+                                <Typography variant="h7" className={classes.subTitle}>101 Products * 80 Active</Typography>
                             </div>
                         </Grid>
 
@@ -184,7 +212,7 @@ const ProductListHeader = props => {
                                     <Divider className={classes.divider} orientation="vertical" />
                                 </Grid>
                                 <Grid item>
-                                    <FontAwesomeIcon icon={faFilter} className={classes.iconButton} />
+                                    <FontAwesomeIcon icon={faFilter} className={classes.iconButton} onClick={handleClickOpen} />
                                 </Grid>
                                 <Grid item>
                                     <Divider className={classes.divider} orientation="vertical" />
@@ -197,6 +225,85 @@ const ProductListHeader = props => {
                     </Grid>
                 </CardContent>
             </Card>
+            <Dialog open={open} onClose={handleClose} >
+                <DialogTitle id="form-dialog-title">Filter Products By: </DialogTitle>
+                <DialogContent>
+
+                    <Grid
+                        container
+                        justify="flex-start"
+                        direction="column"
+                        spacing={3}
+                        alignItems="left"
+                    >
+                        <Grid item>
+                            <Grid
+                                container
+                                justify="flex-start"
+                                direction="row"
+                                spacing={3}
+                                alignItems="center"
+                            >
+                                <Grid item>
+                                    <Typography gutterBottom>
+                                        Online
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Checkbox color="primary" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <Grid item>
+                            <Grid
+                                container
+                                justify="flex-start"
+                                direction="row"
+                                spacing={3}
+                                alignItems="center"
+                            >
+                                <Grid item>
+                                    <Typography gutterBottom>
+                                        Quantity
+                                    </Typography>
+                                </Grid>
+
+                                <Grid item>
+                                    <TextField
+                                        id="outlined-number"
+                                        type="number"
+                                        variant="outlined"
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Typography id="range-slider" gutterBottom>
+                                Price
+                            </Typography>
+
+
+                            <Slider
+                                value={value}
+                                onChange={handleChange}
+                                valueLabelDisplay="auto"
+                                aria-labelledby="range-slider"
+                                getAriaValueText={valuetext}
+                                className={classes.dialogControl}
+                            />
+                        </Grid>
+                    </Grid>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleClose} color="primary">
+                        Apply
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 };

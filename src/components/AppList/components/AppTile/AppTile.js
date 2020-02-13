@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     width: 80,
     margin: '0 auto',
     border: `1px solid ${theme.palette.divider}`,
-    borderRadius: '5px',
+    borderRadius: '30px',
     overflow: 'hidden',
     display: 'flex',
     alignItems: 'center',
@@ -41,10 +41,10 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1)
   },
   productTile: {
-    borderRadius: "20px",
-    maxHeight: "160px",
-    background: "rgba(255, 255, 255, 0.1)",
-    border: "solid 1px white"
+    borderRadius: "40px",
+    maxHeight: "150px",
+    background: "rgba(255, 255, 255, 0.3)",
+    border: "solid 2px white"
   }
 }));
 const AppTile = props => {
@@ -76,9 +76,9 @@ const AppTile = props => {
           />
         </div>
         <Typography
-          align="center"
+          align='center'
           gutterBottom
-          variant="h7"
+          variant="subtitle2"
         >
           {product.title}
         </Typography>

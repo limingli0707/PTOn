@@ -39,7 +39,7 @@ const styles = theme => ({
 class MuiVirtualizedTable extends React.PureComponent {
   static defaultProps = {
     headerHeight: 48,
-    rowHeight: 50,
+    rowHeight: 90,
   };
 
   getRowClassName = ({ index }) => {
@@ -62,7 +62,7 @@ class MuiVirtualizedTable extends React.PureComponent {
         style={{ height: rowHeight }}
         align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
       >
-        {cellData}
+        {columnIndex === 0 ? <div><img width="60" height="60" style={{ paddingRight: "10px" }} src="https://avatars0.githubusercontent.com/u/810438?v=4"></img><a href="/productdetail" style={{textDecoration:"none"}}>{cellData}</a></div> : cellData}
       </TableCell>
     );
   };
@@ -76,7 +76,7 @@ class MuiVirtualizedTable extends React.PureComponent {
         component="div"
         className={clsx(classes.tableCell, classes.flexContainer, classes.noClick)}
         variant="head"
-        style={{ height: headerHeight, fontWeight: "bold", width: "100%", backgroundColor:"#f5f5f5" }}
+        style={{ height: headerHeight, fontWeight: "bold", width: "100%", backgroundColor: "#f5f5f5" }}
         align={columns[columnIndex].numeric || false ? 'right' : 'left'}
       >
         <span>{label}</span>
@@ -87,7 +87,7 @@ class MuiVirtualizedTable extends React.PureComponent {
   render() {
     const { classes, columns, rowHeight, headerHeight, ...tableProps } = this.props;
     return (
-    
+
       <AutoSizer>
         {({ height, width }) => (
           <Table
@@ -144,18 +144,16 @@ MuiVirtualizedTable.propTypes = {
 
 const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
-// ---
-
 const sample = [
-  ['Apex BionicJacket', 159, 6.0, 24, 'Footwear'],
-  ['Denali Jacket', 237, 9.0, 37, 'gear'],
-  ['Quantum Jacket', 262, 16.0, 24, 'Apparel'],
-  ['Base Camp Hot Shot Backpack', 305, 3.7, 67, 'gear'],
-  ['Denali Gloves', 356, 16.0, 49, 'Gear'],
+  ['Apex BionicJacket', 159, 6.0, 24, 'Footwear', 'Dec 12, 2017', 'Online'],
+  ['Denali Jacket', 237, 9.0, 37, 'gear', 'Jan 12, 2018', 'Offline'],
+  ['Quantum Jacket', 262, 16.0, 24, 'Apparel', 'Feb 12, 2019', 'Offline'],
+  ['Base Camp Hot', 305, 3.7, 67, 'March', 'Dec 12, 2020', 'Online'],
+  ['Denali Gloves', 356, 16.0, 49, 'gear', 'Aug 12, 2020', 'Online'],
 ];
 
-function createData(id, product, price, variations, available, type) {
-  return { id, product, price, variations, available, type };
+function createData(id, product, price, variations, available, type, datecreated, status) {
+  return { id, product, price, variations, available, type, datecreated, status };
 }
 
 const rows = [];
@@ -167,6 +165,7 @@ for (let i = 0; i < 200; i += 1) {
 
 export default function ReactVirtualizedTable() {
   return (
+  <div style={{padding:"20px"}}>
     <Paper style={{ height: 800, width: '100%' }}>
       <VirtualizedTable
         rowCount={rows.length}
@@ -174,41 +173,55 @@ export default function ReactVirtualizedTable() {
         columns={[
           {
             width: 250,
+            flexGrow: 0.5,
             label: 'Product',
             dataKey: 'product',
           },
           {
             width: 250,
+            flexGrow: 0.5,
             label: 'Price',
             dataKey: 'price',
             numeric: true,
           },
           {
             width: 250,
+            flexGrow: 0.5,
             label: 'Variations',
             dataKey: 'variations',
             numeric: true,
           },
           {
             width: 250,
+            flexGrow: 0.5,
             label: 'Available',
             dataKey: 'available',
             numeric: true,
           },
           {
             width: 250,
+            flexGrow: 0.5,
             label: 'Type',
             dataKey: 'type',
             numeric: true,
           },
           {
             width: 250,
+            flexGrow: 0.5,
             label: 'Date Created',
-            dataKey: 'type',
+            dataKey: 'datecreated',
+            numeric: true,
+          },
+          {
+            width: 250,
+            flexGrow: 0.5,
+            label: 'Status',
+            dataKey: 'status',
             numeric: true,
           }
         ]}
       />
     </Paper>
+  </div>
   );
 }

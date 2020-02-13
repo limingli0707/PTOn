@@ -3,13 +3,10 @@ import {
   Button,
   Select,
   TextField,
-  AppBar,
   Typography,
   Toolbar,
-  Box,
   Card,
   CardContent,
-  Paper
 } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,7 +21,6 @@ import ProductTitle from "../ProductTitle/ProductTitle";
 import SettingsRemoteIcon from "@material-ui/icons/SettingsRemote";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClone, faTasks } from '@fortawesome/free-solid-svg-icons';
-import AssignmentIcon from "@material-ui/icons/Assignment";
 import AllOutIcon from "@material-ui/icons/AllOut";
 
 const useStyles = makeStyles(theme => ({

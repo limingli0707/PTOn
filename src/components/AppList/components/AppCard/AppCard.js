@@ -126,6 +126,7 @@ const AppCard = props => {
         </Typography>
       </CardContent>
       <Divider />
+      <Divider />
       <CardActions>
         <Grid
           container

@@ -103,7 +103,7 @@ class MuiVirtualizedTable extends React.PureComponent {
         <div>
           <img width="60" height="60" style={{ paddingRight: "10px" }} src={cellData}></img>
           </div> : columnIndex === 1 ? <
-            a href="/productdetail" style={{textDecoration:"none", fontWeight: "bold"}}>{cellData}</a> : 
+            a href="/productDetail" style={{textDecoration:"none", fontWeight: "bold"}}>{cellData}</a> : 
             columnIndex === 8 ? <SimpleMenu /> : cellData }
       </TableCell>
     );

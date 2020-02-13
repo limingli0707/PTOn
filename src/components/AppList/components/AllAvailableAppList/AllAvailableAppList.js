@@ -17,11 +17,11 @@ const AllAvailableAppList = props => {
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Grid container  justify="space-between">
-        <Grid item xs={3}><Chip size="medium" label="Top Free Apps" /></Grid>
+        <Grid item xs={3}><Chip size="medium" label="Recommanded" /></Grid>
         <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
         </Grid>
       </Grid>
-      {props.products.map(product => (
+      {props.products.filter(product => product.category === "Recommanded").map(product => (
         <Grid
           item
           key={product.id}
@@ -40,11 +40,11 @@ const AllAvailableAppList = props => {
     >
       <Grid item xs={12}>
         <Grid container  justify="space-between">
-        <Grid item xs={3}><Chip size="medium" label="Store Design" /></Grid>
+        <Grid item xs={3}><Chip size="medium" label="Inventory Management" /></Grid>
         <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
         </Grid>
       </Grid>
-      {props.products.map(product => (
+      {props.products.filter(product => product.category === "Inventory Management").map(product => (
         <Grid
           item
           key={product.id}
@@ -63,11 +63,11 @@ const AllAvailableAppList = props => {
     >
       <Grid item xs={12}>
         <Grid container  justify="space-between">
-        <Grid item xs={3}><Chip size="medium"  label="Orders and Shipping" /></Grid>
+        <Grid item xs={3}><Chip size="medium"  label="Sales Analytics" /></Grid>
         <Grid item xs={1}><Button size='small' variant="contained" color="primary">See More</Button></Grid>
         </Grid>
       </Grid>
-      {props.products.map(product => (
+      {props.products.filter(product => product.category === "Sales Analytics").map(product => (
         <Grid
           item
           key={product.id}

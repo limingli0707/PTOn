@@ -40,47 +40,47 @@ const useStyles = makeStyles((theme: Theme) =>
 const products = [
   {
     img:
-      "https://images-na.ssl-images-amazon.com/images/I/71dclfJ89kL._AC_UY695_.jpg",
-    title: "Pink Angel 18K Rose Gold",
-    author: "Rose Gold"
+    "https://images-na.ssl-images-amazon.com/images/I/61wSrzj153L._AC_UY695_.jpg",
+    title: "Glam Shoes",
+    author: "Purple"
+  },
+  {
+    img:"https://images-na.ssl-images-amazon.com/images/I/61qhARc-JAL._AC_UY695_.jpg",
+    title: "Summer Mules",
+    author: "Yellow"
   },
   {
     img:
-      "https://images-na.ssl-images-amazon.com/images/I/61cl32CRHbL._AC_UX695_.jpg",
-    title: "Sterling Silver Gemstone",
-    author: "created-emerald"
+      "https://m.media-amazon.com/images/I/41-tDG4b-VL._AC_SR320,320_.jpg",
+    title: "Top Gladiator Lace Up",
+    author: "Red"
   },
   {
     img:
-      "https://images-na.ssl-images-amazon.com/images/I/71zZzTUZrBL._AC_UX695_.jpg",
-    title: "White Sapphire Halo ",
-    author: "created-emerald"
+      "https://images-na.ssl-images-amazon.com/images/I/61m7xmvgOwL._AC_UY695_.jpg",
+    title: "Ambrosia Women's Top Shoes",
+    author: "Ambrosia"
   },
   {
     img:
-      "https://images-na.ssl-images-amazon.com/images/I/81TYNhNHxJL._AC_UY695_.jpg",
-    title: "Angel Wing Heart Necklaces",
+    "https://images-na.ssl-images-amazon.com/images/I/71O2dcGzhkL._AC_UY695_.jpg",
+    title: "Angel Wing Shoes",
     author: "Colorful"
   },
   {
     img:
-      "https://images-na.ssl-images-amazon.com/images/I/71AzcPoABsL._AC_UY695_.jpg",
-    title: "ImFine Jewelry Women Giftsage",
-    author: "Pink"
+    "https://images-na.ssl-images-amazon.com/images/I/61NhUkQG1CL._AC_UY695_.jpg",
+    title: "ImFine Shoes",
+    author: "Yellow"
   },
-  {
-    img:
-      "https://images-na.ssl-images-amazon.com/images/I/81n1fNrg7HL._AC_UY695_.jpg",
-    title: "Genuine Bohemian Garnet",
-    author: "UNIQUE GEM"
-  }
+  
 ];
 
 const EinsteinRecommendations = () => {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card style={{height: "600px"}}>
       <CardHeader
         title="Einstein Recommendations"
         titleTypographyProps={{ variant: "h6" }}
@@ -92,13 +92,13 @@ const EinsteinRecommendations = () => {
       ></CardHeader>
       <CardContent>
         <div className={classes.root}>
-          <GridList cols={1} cellHeight={200} className={classes.gridList}>
+          <GridList cols={2} cellHeight={200} className={classes.gridList}>
             {products.map(tile => (
               <GridListTile key={tile.img} className={classes.gridTile}>
                 <img src={tile.img} alt={tile.title} />
                 <GridListTileBar
                   title={tile.title}
-                  subtitle={<span>by: {tile.author}</span>}
+                  subtitle={<span>color: {tile.author}</span>}
                   actionIcon={
                     <IconButton
                       aria-label={`info about ${tile.title}`}

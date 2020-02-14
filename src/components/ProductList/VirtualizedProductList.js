@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Checkbox from '@material-ui/core/Checkbox';
 
 
 const styles = theme => ({
@@ -41,6 +42,25 @@ const styles = theme => ({
   },
 });
 
+function Checkboxes() {
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = event => {
+    setChecked(event.target.checked);
+  };
+
+  return (
+    <div>
+      <Checkbox
+        checked={checked}
+        onChange={handleChange}
+        value="secondary"
+        color="primary"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+    </div>
+  );
+}
 
 function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -99,12 +119,12 @@ class MuiVirtualizedTable extends React.PureComponent {
         style={{ height: rowHeight }}
         align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
       >
-        {columnIndex === 0 ? 
+        {columnIndex === 0 ? <Checkboxes /> : columnIndex === 1 ?
         <div>
           <img width="60" height="60" style={{ paddingRight: "10px" }} src={cellData}></img>
-          </div> : columnIndex === 1 ? <
+          </div> : columnIndex === 2 ? <
             a href="/productDetail" style={{textDecoration:"none", fontWeight: "bold"}}>{cellData}</a> : 
-            columnIndex === 8 ? <SimpleMenu /> : cellData }
+            columnIndex === 9 ? <SimpleMenu /> : cellData }
       </TableCell>
     );
   };
@@ -121,7 +141,7 @@ class MuiVirtualizedTable extends React.PureComponent {
         style={{ height: headerHeight, fontWeight: "bold", width: "100%", backgroundColor: "#f5f5f5" }}
         align={columns[columnIndex].numeric || false ? 'right' : 'left'}
       >
-        <span>{label}</span>
+        <span>{columnIndex === 0 ? <Checkboxes/ > :label}</span>
       </TableCell>
     );
   };
@@ -187,15 +207,15 @@ MuiVirtualizedTable.propTypes = {
 const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 const sample = [
-  ['https://avatars0.githubusercontent.com/u/810438?v=4','Apex BionicJacket', 159, 6.0, 24, 'Footwear', 'Dec 12, 2017', 'Online'],
-  ['https://avatars2.githubusercontent.com/u/6820?v=4','Denali Jacket', 237, 9.0, 37, 'gear', 'Jan 12, 2018', 'Offline'],
-  ['https://avatars2.githubusercontent.com/u/63648?v=4','Quantum Jacket', 262, 16.0, 24, 'Apparel', 'Feb 12, 2019', 'Offline'],
-  ['https://avatars0.githubusercontent.com/u/810438?v=4','Base Camp Hot', 305, 3.7, 67, 'March', 'Dec 12, 2020', 'Online'],
-  ['https://avatars2.githubusercontent.com/u/63648?v=4','Denali Gloves', 356, 16.0, 49, 'gear', 'Aug 12, 2020', 'Online'],
+  ['','https://avatars0.githubusercontent.com/u/810438?v=4','Apex BionicJacket', 159, 6.0, 24, 'Footwear', 'Dec 12, 2017', 'Online'],
+  ['','https://avatars2.githubusercontent.com/u/6820?v=4','Denali Jacket', 237, 9.0, 37, 'gear', 'Jan 12, 2018', 'Offline'],
+  ['','https://avatars2.githubusercontent.com/u/63648?v=4','Quantum Jacket', 262, 16.0, 24, 'Apparel', 'Feb 12, 2019', 'Offline'],
+  ['','https://avatars0.githubusercontent.com/u/810438?v=4','Base Camp Hot', 305, 3.7, 67, 'March', 'Dec 12, 2020', 'Online'],
+  ['','https://avatars2.githubusercontent.com/u/63648?v=4','Denali Gloves', 356, 16.0, 49, 'gear', 'Aug 12, 2020', 'Online'],
 ];
 
-function createData(id, image, product, price, variations, available, type, datecreated, status, dropdown) {
-  return { id, image, product, price, variations, available, type, datecreated, status, dropdown };
+function createData(id, productcheckbox, image, product, price, variations, available, type, datecreated, status, dropdown) {
+  return { id, productcheckbox, image, product, price, variations, available, type, datecreated, status, dropdown };
 }
 
 const rows = [];
@@ -213,6 +233,12 @@ export default function ReactVirtualizedTable() {
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
+          {
+            width: 100,
+            flexGrow: 0.5,
+            label: '',
+            dataKey: 'productcheckbox',
+          },
           {
             width: 100,
             flexGrow: 0.5,

@@ -18,7 +18,7 @@ const ProductTitle = props => {
     return (
         <div >
             <Typography variant="h4" style={styles.title}>{props.productDescription}</Typography>
-            <Typography variant="h7" style={styles.subTitle}>{props.productId}</Typography>
+            <Typography variant="h6" style={styles.subTitle}>{props.productId}</Typography>
         </div>
     );
 };

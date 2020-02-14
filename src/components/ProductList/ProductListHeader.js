@@ -180,7 +180,7 @@ const ProductListHeader = props => {
                         <Grid item xs={2}>
                             <div >
                                 <Typography variant="h4" className={classes.title}>PRODUCTS</Typography>
-                                <Typography variant="h7" className={classes.subTitle}>101 Products * 80 Active</Typography>
+                                <Typography variant="h6" className={classes.subTitle}>101 Products * 80 Active</Typography>
                             </div>
                         </Grid>
 

@@ -74,8 +74,9 @@ const AppCard = props => {
   }
 
   useEffect(()=>{
+    let interval;
     if (downloadStatus === downloadStatusEnum.DOWNLOADING && progress === 0) {
-      setInterval(tick, 20);
+      interval = setInterval(tick, 20);
     }
     if (progress >= 100) {
       setDownloadStatus(downloadStatusEnum.DOWNLOADED);
@@ -86,6 +87,7 @@ const AppCard = props => {
     }
     console.log(downloadStatus);
     console.log(progress);
+    return () => clearInterval(interval);
   },[progress]);
 
   function getStyles () {

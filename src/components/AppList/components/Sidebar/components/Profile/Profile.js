@@ -28,7 +28,7 @@ const Profile = props => {
 
   const user = {
     name: 'Kobe Bryant',
-    avatar: '/images/apps/kobe.jpeg',
+    avatar: 'images/apps/kobe.jpeg',
     bio: 'Basketball player'
   };
 

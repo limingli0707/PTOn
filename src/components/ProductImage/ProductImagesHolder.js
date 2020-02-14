@@ -42,24 +42,28 @@ class ProductImagesHolder extends React.Component {
    */
 
   componentDidMount() {
-    fetch("https://api.github.com/users")
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            products: result
-          });
-        },
-
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+    var params = {
+        grant: 'client_credentials'
+    };
+    var formData = new FormData();
+    for (var k in params) {
+        formData.append(k, params[k]);
+    }
+    fetch('https://account.demandware.com/dw/oauth2/access_token', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            "Content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+            "Authorization": "Basic ZjY2ZjBlNGYtZmE0NC00MWViLTliMzUtODlkZTllZTY3ZTcxOm1lcmN1cnkxY2NkeA=="
         }
-      );
-  }
+    }).then(response => {
+        console.log("yayyyyy");
+            return response.json()
+        }).then(json => {
+            this.setState({
+                user:json
+            });
+        });}
 
   render() {
     const { products } = this.state;

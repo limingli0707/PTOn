@@ -6,7 +6,7 @@ import AppList from './components/AppList';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from './theme';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link

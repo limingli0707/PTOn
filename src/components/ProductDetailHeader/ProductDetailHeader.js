@@ -35,11 +35,11 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1)
   },
   image: {
-    margin: "-60px auto 0",
-    width: "93  %",
-    height: 140,
+    margin: "-85px auto 0",
+    width: "93%",
+    height: "100%",
     marginLeft: 1,
-    borderRadius: "4px",
+    borderRadius: "40px",
     boxShadow: "0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1)",
     position: "relative",
     zIndex: 1000

@@ -122,7 +122,7 @@ const PriceBook = ({ products }) => {
   });
 
   return (
-    <Card style={{ maxHeight: "600px", overflow: "scroll" }}>
+    <Card style={{ maxHeight: "600px", overflow: "scroll"}}>
       <CardHeader
         title="Price Books"
         titleTypographyProps={{ variant: "h6" }}
@@ -132,8 +132,9 @@ const PriceBook = ({ products }) => {
           </Avatar>
         }
       ></CardHeader>
-      <CardContent>
+      <CardContent >
         <MaterialTable
+        
           icons={tableIcons}
           title=""
           columns={state.columns}

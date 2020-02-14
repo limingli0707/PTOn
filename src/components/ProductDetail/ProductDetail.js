@@ -40,7 +40,7 @@ const ProductDetail = props => {
               <DetailTabs />
             </Grid>
             <Grid item xs={3}>
-              <Analytics product={{ name: "Diamond Stud Earings" }} />
+              <Analytics product={{ name: "Allegra Women's Lace up Sandals" }} />
             </Grid>
             <Grid item xs={3}>
               <StoreMap />

@@ -62,8 +62,26 @@ class ProductImagesHolder extends React.Component {
   }
 
   render() {
-    const { products } = this.state;
-    console.log('proucts: ', products)
+    //const { products } = this.state;
+    //console.log('proucts: ', products)
+
+      const products = [
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61I0HEK7s6L._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61k6QHc4isL._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61mQkZrOP1L._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/51SkCjRjxvL._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61lUHvX2w%2BL._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61esXSre3fL._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61qKFs3YBML._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61k6QHc4isL._UY695_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61myl-bNEOL._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61lBmaqaVFL._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61cSpuTIwyL._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61RCBNug6gL._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/51sK5UTQU-L._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/61cwVCk%2B-UL._SY695._SX._UX._SY._UY_.jpg"},
+          {"avatar_url": "https://images-na.ssl-images-amazon.com/images/I/71Zr48fRraL._SY695._SX._UX._SY._UY_.jpg"},
+      ]
     
     const imagePlaceholder = {
       width: "100%",

@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     margin: "-60px auto 0",
-    width: "80%",
+    width: "93  %",
     height: 140,
     marginLeft: 1,
     borderRadius: "4px",
@@ -119,19 +119,19 @@ const ProductDetailHeader = props => {
             container
             justify="flex-start"
             direction="row"
-            spacing={0}
+            spacing={2}
             alignItems="center"
           >
             <Grid item xs={1}>
               <div className={classes.image}>
-                <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg" />
+                <ProductAvatar source="https://images-na.ssl-images-amazon.com/images/I/61NJRtHSTML._UY695_.jpg" />
               </div>
             </Grid>
 
             <Grid item xs={5}>
               <ProductTitle
-                productDescription="Diamond Stud Earrings"
-                productId="SD12345"
+                productDescription="Allegra Women's Lace up Sandals"
+                productId="SD48123485"
               />
             </Grid>
 

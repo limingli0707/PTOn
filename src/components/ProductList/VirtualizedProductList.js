@@ -207,15 +207,26 @@ MuiVirtualizedTable.propTypes = {
 const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 const sample = [
-  ['','https://avatars0.githubusercontent.com/u/810438?v=4','Apex BionicJacket', 159, 6.0, 24, 'Footwear', 'Dec 12, 2017', 'Online'],
-  ['','https://avatars2.githubusercontent.com/u/6820?v=4','Denali Jacket', 237, 9.0, 37, 'gear', 'Jan 12, 2018', 'Offline'],
-  ['','https://avatars2.githubusercontent.com/u/63648?v=4','Quantum Jacket', 262, 16.0, 24, 'Apparel', 'Feb 12, 2019', 'Offline'],
-  ['','https://avatars0.githubusercontent.com/u/810438?v=4','Base Camp Hot', 305, 3.7, 67, 'March', 'Dec 12, 2020', 'Online'],
-  ['','https://avatars2.githubusercontent.com/u/63648?v=4','Denali Gloves', 356, 16.0, 49, 'gear', 'Aug 12, 2020', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/61NJRtHSTML._UY695_.jpg','Allegra Lace Up Sandals','Footwear',159, 6.0, 24, 'Dec 12, 2017', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/81YxzJi0-nL._UY879_.jpg','House of Harlow Mini Dress','Apparel', 237, 9.0, 37, 'Jan 12, 2018', 'Offline'],
+  ['https://images-na.ssl-images-amazon.com/images/I/81e%2B9E2-qwL._UX679_.jpg','SuiSional Men\'s Luxury Dress Slim Fit Tuxedo Suit Jacket and Stylish Blazer', 'Apparel', 262, 16.0, 24, 'Feb 12, 2019', 'Offline'],
+  ['https://images-na.ssl-images-amazon.com/images/I/81quRG6e7mL._UY695_.jpg','Beaded Sizzling Rajasthani Style Wedding Clutch','Accessories', 305, 3.7, 67, 'Dec 12, 2020', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/518naPb3JDL._UY695_.jpg','Charming Tailor Fashion PU Leather Handbag Stylish Women Convertible Clutch Purse', 'Accessories', 356, 16.0, 49, 'Aug 12, 2020', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/71IHWSg5isL._SX679_.jpg','Nail Dipping Powder Starter Kit', 'Beauty', 356, 16.0, 49, 'Aug 12, 2020', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/61dAkX9kzYL._SX679_.jpg','Mac Extra Dimension Skinfinish', 'Beauty', 356, 16.0, 49, 'Jan 11, 2005', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/91ArfAcp6TL._SX679_.jpg','Dead Sea Mud Mask', 'Beauty', 356, 16.0, 49, 'Oct 24, 1975', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/81cfpBa7dyL._SX679_.jpg','Toast It Coasters', 'Home & Kitchen', 356, 16.0, 49, 'Feb 25, 2019', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/71eAkYf2ZVL._SX679_.jpg','Bride and Groom Champagne Flutes', 'Home & Kitchen', 356, 16.0, 49, 'May 21, 1999', 'Offline'],
+  ['https://images-na.ssl-images-amazon.com/images/I/71u6nI9eAcL._AC_SX430_.jpg','Legend of Zelda Link\'s Awakening', 'Video Games', 356, 16.0, 49, 'Jan 04, 1988', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/81m0GY0bTgL._SX679_.jpg','Professional Drawing and Sketching Kit', 'Arts & Crafts', 356, 16.0, 49, 'Aug 12, 2020', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/81y2Goz%2BFWL._SX679_.jpg','Wood Sketchbox Easel', 'Arts & Crafts', 356, 16.0, 49, 'Mar 12, 2008', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/919JoxA615L._SX679_.jpg','Genius Art Owl Ready to Paint Ceramic', 'Arts & Crafts', 356, 16.0, 49, 'Apr 01, 2001', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/7108HSmwBeL._SX679_.jpg','VTech Pull and Sing Puppy', 'Toys', 356, 16.0, 49, 'Apr 01, 2001', 'Online'],
+  ['https://images-na.ssl-images-amazon.com/images/I/519p2sesfpL._SX679_.jpg','Moon Star Projector', 'Toys', 356, 16.0, 49, 'Apr 01, 2001', 'Online'],
 ];
 
-function createData(id, productcheckbox, image, product, price, variations, available, type, datecreated, status, dropdown) {
-  return { id, productcheckbox, image, product, price, variations, available, type, datecreated, status, dropdown };
+function createData(id, image, product, type, price, variations, available, datecreated, status, dropdown) {
+  return { id, image, product, type, price, variations, available, datecreated, status, dropdown };
 }
 
 const rows = [];
@@ -246,48 +257,48 @@ export default function ReactVirtualizedTable() {
             dataKey: 'image',
           },
           {
-            width: 250,
+            width: 400,
             flexGrow: 0.5,
             label: 'Product',
             dataKey: 'product',
           },
           {
-            width: 250,
+            width: 200,
+            flexGrow: 0.5,
+            label: 'Type',
+            dataKey: 'type',
+            numeric: false,
+          },
+          {
+            width: 100,
             flexGrow: 0.5,
             label: 'Price',
             dataKey: 'price',
             numeric: true,
           },
           {
-            width: 250,
+            width: 100,
             flexGrow: 0.5,
             label: 'Variations',
             dataKey: 'variations',
             numeric: true,
           },
           {
-            width: 250,
+            width: 100,
             flexGrow: 0.5,
             label: 'Available',
             dataKey: 'available',
             numeric: true,
           },
           {
-            width: 250,
-            flexGrow: 0.5,
-            label: 'Type',
-            dataKey: 'type',
-            numeric: true,
-          },
-          {
-            width: 250,
+            width: 150,
             flexGrow: 0.5,
             label: 'Date Created',
             dataKey: 'datecreated',
             numeric: true,
           },
           {
-            width: 250,
+            width: 100,
             flexGrow: 0.5,
             label: 'Status',
             dataKey: 'status',

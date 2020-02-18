@@ -9,6 +9,7 @@ import { Card } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DetailLayout from './details_layout'
+import CategoryTree from "./details_categories";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +73,7 @@ export default function FullWidthTabs() {
           aria-label="full width tabs example"
         >
           <Tab label="Details" {...a11yProps(0)} />
-          <Tab label="Variation" {...a11yProps(1)} />
+          <Tab label="Categories" {...a11yProps(1)} />
           <Tab label="Utilization" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
@@ -85,7 +86,7 @@ export default function FullWidthTabs() {
             <DetailLayout/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          <CategoryTree/>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           Item Three

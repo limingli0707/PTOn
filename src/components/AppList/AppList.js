@@ -10,6 +10,7 @@ import { Divider } from '@material-ui/core';
 import DownloadedAppList from './components/DownloadedAppList';
 import AllAvailableAppList from './components/AllAvailableAppList';
 import {AppsProvider} from './components/AppContextProvider/AppContextProvider';
+import HistoryList from './components/HistoryList';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,6 +38,8 @@ const ProductList = () => {
       <Sidebar />
       <AppsProvider>
       <DownloadedAppList/>
+      <Divider className={classes.divider} />
+      <HistoryList></HistoryList>
       <Divider className={classes.divider} />
       <AllAvailableAppList products={products} />
       </AppsProvider>

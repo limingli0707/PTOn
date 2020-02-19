@@ -44,7 +44,7 @@ const ProductsToolbar = props => {
         className={classes.logo}
         />
       <Typography variant="h5" gutterBottom>
-        Jedi Community Kit
+        Hello Kobe!
       </Typography>
       <div className={classes.flexGrow} />
         <IconButton color="inherit">

@@ -35,11 +35,11 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1)
   },
   image: {
-    margin: "-60px auto 0",
-    width: "80%",
-    height: 140,
+    margin: "-85px auto 0",
+    width: "93%",
+    height: "100%",
     marginLeft: 1,
-    borderRadius: "4px",
+    borderRadius: "40px",
     boxShadow: "0 1px 1px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1)",
     position: "relative",
     zIndex: 1000
@@ -119,19 +119,19 @@ const ProductDetailHeader = props => {
             container
             justify="flex-start"
             direction="row"
-            spacing={0}
+            spacing={2}
             alignItems="center"
           >
             <Grid item xs={1}>
               <div className={classes.image}>
-                <ProductAvatar source="https://www.diamondstuds.com/images/homepage/ds.jpg" />
+                <ProductAvatar source="https://images-na.ssl-images-amazon.com/images/I/61NJRtHSTML._UY695_.jpg" />
               </div>
             </Grid>
 
             <Grid item xs={5}>
               <ProductTitle
-                productDescription="Diamond Stud Earrings"
-                productId="SD12345"
+                productDescription="Allegra Women's Lace up Sandals"
+                productId="SD48123485"
               />
             </Grid>
 

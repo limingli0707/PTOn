@@ -8,7 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    maxWidth: '100%'
+    maxWidth: '100%',
+    height: '450px'
   },
   paper: {
     padding: theme.spacing(2),
@@ -33,49 +34,40 @@ export default function CenteredGrid() {
           <Grid item xs={6}>
             <Paper className={classes.paper}>
               <div className={classes.label}>Product Name</div>
-              <div>Canyondiamonds Full Zip Fleece</div>
+              <div>Allegra K Women's Kitten Heel Lace up Sandals</div>
             </Paper>
           </Grid>
 
           <Grid item xs={6}>
             <Paper className={classes.paper}>
               <div className={classes.label}>Product ID</div>
-              <div>1203100</div>
+              <div>SD48123485</div>
             </Paper>
           </Grid>
 
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              Description:
-              <br />
-              Keep covered on the wall wearing a climbing-specific stretch
-              fleece with a full-face protective hood. The stretch, hard-faced
-              heathered fleece resists abrasion against the rock and features a
-              brushed back for next-to-skin comfort. Constructed with underarm
-              and side gussets for ease of movement while scaling the wall.
-              Thumb-loop cuffs and stretch panels on forearms keep cuffs from
-              sliding down when reaching for the next handhold. The full-zip
-              front makes this warm fleece easy to layer as your core
-              temperature flucturates. Durable, tri-color exposed zipper adds an
-              unexpected pop of color for contrast.
+              <div className={classes.label}>Product Description</div>
+              <div>
+                A closet essential that every girl needs. The everyday shoe that can be worn any season and will soon replace your other trendy shoes.<br/>
+                SIMPLE AND COMFORTABLE: Feel confident to wear these during any occasion with a walkable heel and ankle strap to keep you in place.<br/>
+                DRESS IT UP OR DOWN: These perfect high heels up the chic factor to any look from your brunch outfit to your little black dress.
+                Go ahead – put them on and you’ll feel confident to rock the day (or night) away!<br/><br/>
+                MEASUREMENTS: Heel 3”.
+                FIT: Runs true to size.
+              </div>
             </Paper>
           </Grid>
           <Grid item xs={6}>
             <Paper className={classes.paper}>
               <div className={classes.label}>Brand</div>
-              <div>Northen Train Outfitters</div>
+              <div>Allegra</div>
             </Paper>
           </Grid>
           <Grid item xs={6}>
             <Paper className={classes.paper}>
               <div className={classes.label}>Product Type</div>
-              <div>Apparel</div>
-            </Paper>
-          </Grid>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}>
-              <div className={classes.label}>Color</div>
-              <div>#575153</div>
+              <div>Footwear</div>
             </Paper>
           </Grid>
         </Grid>

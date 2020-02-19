@@ -54,7 +54,7 @@ const markers = [
 
 const StoreMap = () => {
   return (
-    <Card>
+    <Card style={{ height: '600px'}}>
       <CardHeader
         title="Store and Inventory"
         titleTypographyProps={{ variant: "h6" }}

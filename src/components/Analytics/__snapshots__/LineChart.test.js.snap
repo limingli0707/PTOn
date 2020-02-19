@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Line test 1`] = `
+<div
+  className="App"
+>
+  <Chart
+    chartActions={null}
+    chartEvents={null}
+    chartType="LineChart"
+    chartWrapperParams={Object {}}
+    className=""
+    columns={null}
+    controls={null}
+    data={
+      Array [
+        Array [
+          "Date",
+          "Total Views",
+          "Total Sales",
+        ],
+        Array [
+          "8/7",
+          4000,
+          1500,
+        ],
+        Array [
+          "13/7",
+          5000,
+          2200,
+        ],
+        Array [
+          "14/7",
+          5000,
+          2800,
+        ],
+        Array [
+          "15/7",
+          4500,
+          2200,
+        ],
+        Array [
+          "17/7",
+          6500,
+          3300,
+        ],
+        Array [
+          "17/7",
+          5500,
+          2200,
+        ],
+      ]
+    }
+    diffdata={null}
+    formatters={null}
+    getChartEditor={null}
+    getChartWrapper={[Function]}
+    graphID={null}
+    graph_id={null}
+    height="100%"
+    legendToggle={false}
+    legend_toggle={false}
+    options={
+      Object {
+        "intervals": Object {
+          "style": "line",
+        },
+        "legend": "none",
+        "lineWidth": 3,
+        "title": "",
+      }
+    }
+    render={null}
+    rootProps={Object {}}
+    rows={null}
+    spreadSheetQueryParameters={
+      Object {
+        "gid": 1,
+        "headers": 1,
+      }
+    }
+    spreadSheetUrl={null}
+    style={Object {}}
+    toolbarID={null}
+    toolbarItems={null}
+    width="100%"
+  />
+</div>
+`;

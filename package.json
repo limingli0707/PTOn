@@ -43,7 +43,8 @@
       "electron-dev": "concurrently \"BROWSER=none PORT=3001 yarn start\" \"wait-on http://localhost:3001 && electron .\"",
       "postinstall": "electron-builder install-app-deps",
       "preelectron-pack": "yarn build",
-      "electron-pack": "electron-builder -mw"
+      "electron-pack": "electron-builder -mw",
+      "dev": "(cd backend && yarn && yarn start) & yarn start"
    },
    "eslintConfig": {
       "extends": "react-app"
@@ -89,5 +90,6 @@
       "directories": {
          "buildResources": "assets"
       }
-   }
+   },
+   "proxy": "http://localhost:5000"
 }

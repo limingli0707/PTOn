@@ -32,7 +32,7 @@ export default class HistoryList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/histories/')
+    axios.get('/histories/')
       .then(response => {
         this.setState({ histories: response.data })
       })
